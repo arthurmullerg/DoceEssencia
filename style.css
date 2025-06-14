@@ -535,7 +535,7 @@ button img {
 
    .produto {
         width: calc(100% - 40px); /* Largura quase total */
-        margin: 0 20px;
+        margin: 0px 20px;
     }
    
   .carousel-button {
