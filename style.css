@@ -543,7 +543,66 @@ button img {
         width: 30px;
         height: 30px;
     }
+   .conteudo-contato {
+    flex-direction: column;
+    gap: 30px;
+  }
   
+  .texto-botoes {
+    margin-left: 0;
+    padding: 0 20px;
+  }
+  
+  .contato h2 {
+    font-size: 1.5rem;
+  }
+  
+  .contato p {
+    font-size: 0.9rem;
+  }
+  
+  .botoes-contato {
+    gap: 15px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .img-contato img {
+    max-width: 180px;
+  }
 }
+
+@media (max-width: 480px) {
+  .contato {
+    padding: 30px 15px;
+  }
+  
+  .contato h2 {
+    font-size: 1.3rem;
+  }
+  
+  .contato p {
+    font-size: 0.85rem;
+  }
+  
+  .botoes-contato {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .img-contato img {
+    max-width: 120px;
+  }
+}
+
 
  
