@@ -532,6 +532,7 @@ button img {
   gap:20px;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
 }
  .produto { 
     flex: 0 0 100%;
