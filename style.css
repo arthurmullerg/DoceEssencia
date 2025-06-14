@@ -491,9 +491,56 @@ button img {
   background-color:#FBE4E6 ;
   text-align: center;
   padding: 8px;
+  font-size: 12px;
   font-family: 'Poppins', serif;
   padding: 10px ; 
  }
+ .whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  background-color: #128C7E;
+  transform: scale(1.1);
+}
+
+.whatsapp-float img {
+  width: 35px;
+  height: 35px;
+}
+.whatsapp-float::after {
+  content: "Fale conosco!";
+  position: absolute;
+  left: -120px;
+  width: 110px;
+  background: white;
+  color: #25d366;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.whatsapp-float:hover::after {
+  opacity: 1;
+}
+
+
 
  /* Responsividade */
 
@@ -535,7 +582,17 @@ button img {
         border-radius: 5px;
 
 }
-
+.whatsapp-float {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .whatsapp-float img {
+    width: 30px;
+    height: 30px;
+  }
    .produto {
         width: calc(100% - 40px); /* Largura quase total */
         margin: 0px 20px;
