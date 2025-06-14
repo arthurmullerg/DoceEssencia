@@ -216,13 +216,15 @@ nav.menu-mobile ul li{
 .titulo-centralizado span {
     color: #26678A;
 }
+
 .produtos-grid {
     display: flex;
     justify-content: center;  
     flex-wrap: wrap;          
     gap: 2rem;                 
     padding: 1rem;             
-    text-align: center;        
+    text-align: center;   
+    margin: 0 auto;     
 }
 
 
@@ -368,6 +370,7 @@ nav.menu-mobile ul li{
     width: 280px; /* Largura fixa para desktop */
     margin: 0 10px;
     scroll-snap-align: start; /* Melhora o alinhamento */
+     flex: 0 0 250px;
 }
 
 .produto img {
