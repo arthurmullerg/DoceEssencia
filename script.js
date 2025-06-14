@@ -30,37 +30,49 @@
 //carrosel
 
 
-   document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const carousels = document.querySelectorAll('.slider-container');
 
     carousels.forEach(carousel => {
-      const wrapper = carousel.querySelector('.produtos-wrapper');
-      const grid = wrapper.querySelector('.produtos-grid-c');
-      const items = grid.querySelectorAll('.produto');
-      const prev = carousel.querySelector('.prev');
-      const next = carousel.querySelector('.next');
+        const wrapper = carousel.querySelector('.produtos-wrapper');
+        const grid = wrapper.querySelector('.produtos-grid-c');
+        const items = grid.querySelectorAll('.produto');
+        const prev = carousel.querySelector('.prev');
+        const next = carousel.querySelector('.next');
 
-      let currentIndex = 0;
-      const itemsToShow = 3;
-      const totalItems = items.length;
+        let currentIndex = 0;
+        let itemsToShow = window.innerWidth <= 768 ? 1 : 3;
+        
+        const updateCarousel = () => {
+            itemsToShow = window.innerWidth <= 768 ? 1 : 3;
+            const itemWidth = items[0].offsetWidth;
+            const gap = 20; // Ajuste conforme seu gap real
+            const translateValue = currentIndex * (itemWidth + gap);
+            
+            grid.style.transform = `translateX(-${translateValue}px)`;
+            
+            // Atualiza visibilidade dos botões
+            prev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            next.style.visibility = currentIndex >= items.length - itemsToShow ? 'hidden' : 'visible';
+        };
 
-      const updateCarousel = () => {
-        const itemWidth = items[0].offsetWidth + 20;
-        grid.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-      };
+        prev.addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateCarousel();
+        });
 
-      prev.addEventListener('click', () => {
-        currentIndex = Math.max(currentIndex - 1, 0);
+        next.addEventListener('click', () => {
+            currentIndex = Math.min(currentIndex + 1, items.length - itemsToShow);
+            updateCarousel();
+        });
+
+        // Inicializa
         updateCarousel();
-      });
-
-      next.addEventListener('click', () => {
-        const maxIndex = totalItems - itemsToShow;
-        currentIndex = Math.min(currentIndex + 1, maxIndex);
-        updateCarousel();
-      });
-
-      window.addEventListener('resize', updateCarousel);
-      updateCarousel();
+        
+        // Recalcula ao redimensionar
+        window.addEventListener('resize', () => {
+            itemsToShow = window.innerWidth <= 768 ? 1 : 3;
+            updateCarousel();
+        });
     });
-  });
+});
