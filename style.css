@@ -34,6 +34,34 @@ h1{
     color: #26678A;
     font-size: 50px;
 }
+
+.menu-mobile{
+    display: none;
+    float: right;
+    width: 28px;
+    cursor: pointer;
+    height: 28px;
+    margin-top: 7px;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png);
+    background-size: 100% 100%;
+}
+nav.menu-mobile ul{
+    z-index: 999 ;
+    position:absolute;
+    left: 0;
+    top: 60px;
+    background-color: white;
+    text-align: center;
+    width: 100%;    
+    list-style-type: none;
+    display: none;
+}
+nav.menu-mobile ul li{
+    padding: 10px 0;
+}
+nav.menu-mobile ul li{
+    text-transform: uppercase;
+}
 .menu-desktop{
     text-align: center;
 }
@@ -463,4 +491,46 @@ button img {
   padding: 10px ; 
  }
 
-  
+ /* Responsividade */
+
+ @media screen and (max-width:1024px) {
+ 
+ }
+
+ @media screen and (max-width:768px) {
+ .menu-desktop{
+  display: none;
+ }
+ .menu-mobile{
+  display: block;
+ }
+ .servicos .container{
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+ }
+.servicos  .container .box-servico:nth-of-type(1){
+    width: 60%;
+    padding: 30px 2% ;
+    background-color:#6b8a9e;
+        border-radius: 5px;
+
+}
+.servicos  .container .box-servico:nth-of-type(2){
+    width: 75%;
+    padding: 45px 2% ;
+    background-color:#26678A;
+    background-image: none;
+    border-radius: 8px;
+
+}
+.servicos  .container .box-servico:nth-of-type(3){
+    width: 60%;
+    padding: 30px 2% ;
+    background-color:#6b8a9e;
+        border-radius: 5px;
+
+}
+}
+
+ 
