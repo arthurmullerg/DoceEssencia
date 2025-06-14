@@ -570,9 +570,7 @@ button img {
     font-size: 0.9rem;
   }
   
-  .img-contato img {
-    max-width: 180px;
-  }
+  
 }
 
 @media (max-width: 480px) {
@@ -599,9 +597,7 @@ button img {
     justify-content: center;
   }
   
-  .img-contato img {
-    max-width: 120px;
-  }
+ 
 }
 
 
