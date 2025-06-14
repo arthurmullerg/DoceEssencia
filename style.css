@@ -528,6 +528,24 @@ button img {
         border-radius: 5px;
 
 }
+.produtos-grid-c{
+  gap:20px;
+  justify-content: center;
+  overflow: hidden;
+}
+ .produto { 
+    flex: 0 0 100%;
+    max-width: 300px; /* ou ajuste conforme quiser */
+    margin: 0 auto;
+  }
+   .produtos-wrapper {
+    max-width: 100%; /* Centraliza e limita a largura */
+  }
+  .carousel-button {
+    font-size: 1.8rem;
+    padding: 0 8px;
+  }
+  
 }
 
  
