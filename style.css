@@ -501,10 +501,6 @@ button img {
  .menu-desktop{
   display: none;
  }
- .menu-mobile{
-  display: block;
-  margin-top: -50px;
- }
  .servicos .container{
   flex-direction: column;
   align-items: center;
