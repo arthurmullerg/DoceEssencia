@@ -225,11 +225,7 @@ nav.menu-mobile ul li{
     text-align: center;        
 }
 
-.produto {
-    width: 160px;
-    text-align: center;
-    margin-top: 20px;
-}
+
 .produto .img-mosaico-single{
    box-shadow: 3px 5px 3px rgb(0,0,0,0.5);
    transition: ease-in-out 300ms;
@@ -351,35 +347,27 @@ nav.menu-mobile ul li{
 }
 
 .slider-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
     position: relative;
-  }
-  .produtos-wrapper {
-  overflow: hidden;
-  max-width: 960px; /* 3 cards de 300px + gap */
-  margin: 0 auto;
+    width: 100%;
+    padding: 0 20px; /* Espaço para os botões */
 }
 
- .produtos-grid-c{
-  display: flex;
-  gap: 20px;
-  transition: transform 0.5s ease-in-out;
-  /* Garante que só 3 produtos apareçam por vez */
-  width: max-content;
-    scroll-behavior: smooth;
-      overflow-x: auto;
+.produtos-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+.produtos-grid-c {
+    display: flex;
+    transition: transform 0.3s ease;
+    will-change: transform;
+    padding: 10px 0; /* Espaço vertical */
 }
 
- .produto {
-  flex: 0 0 300px; /* largura fixa de cada card */
-  max-width: 250px;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-
+.produto {
+    flex: 0 0 auto;
+    width: 280px; /* Largura fixa para desktop */
+    margin: 0 10px;
+    scroll-snap-align: start; /* Melhora o alinhamento */
 }
 
 .produto img {
@@ -391,13 +379,26 @@ nav.menu-mobile ul li{
 }
 
   .carousel-button {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 0 10px;
-    z-index: 2;
-  }
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
 
 /*contato*/
 .contato {
@@ -528,24 +529,17 @@ button img {
         border-radius: 5px;
 
 }
-.produtos-grid-c{
-  gap:20px;
-  justify-content: center;
-  overflow: hidden;
-  width: 100%;
-}
- .produto { 
-    flex: 0 0 100%;
-    max-width: 300px; /* ou ajuste conforme quiser */
-    margin: 0 auto;
-  }
-   .produtos-wrapper {
-    max-width: 100%; /* Centraliza e limita a largura */
-  }
+
+   .produto {
+        width: calc(100% - 40px); /* Largura quase total */
+        margin: 0 20px;
+    }
+   
   .carousel-button {
-    font-size: 1.8rem;
-    padding: 0 8px;
-  }
+        font-size: 1.5rem;
+        width: 30px;
+        height: 30px;
+    }
   
 }
 
