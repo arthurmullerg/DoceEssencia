@@ -16,7 +16,7 @@ html,body{
 
 header{
     padding: 20px 2%;
-}
+} 
 
 .clear{
     clear: both;
@@ -216,6 +216,27 @@ nav.menu-mobile ul li{
 .titulo-centralizado span {
     color: #26678A;
 }
+.produto-queridinho {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+  width: 200px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.produto-queridinho .nome {
+    font-weight: bold;
+    color: #2B2B2B;
+    margin-top: 18px;
+    font-family: 'Poppins' ,serif;
+    font-size: 15px;
+}
+.produto-queridinho .preco {
+   color: #F49FB6;
+    font-weight: bold;
+}
+
 
 .produtos-grid {
     display: flex;
@@ -228,13 +249,17 @@ nav.menu-mobile ul li{
 }
 
 
-.produto .img-mosaico-single{
-   box-shadow: 3px 5px 3px rgb(0,0,0,0.5);
-   transition: ease-in-out 300ms;
+.produto-queridinho .img-mosaico-single {
+   width: 100%;
+   padding-top: 100%; /* mantém proporção quadrada */
+   background-size: cover;
+   background-position: center;
+   border-radius: 24px;
+   box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.5);
+   transition: transform 0.3s ease-in-out;
 }
-.produto .img-mosaico-single:hover{
-    transform: scale(1.2);
-    
+.produto-queridinho .img-mosaico-single:hover {
+   transform: scale(1.1);
 }
 .produto .nome {
     font-weight: bold;
