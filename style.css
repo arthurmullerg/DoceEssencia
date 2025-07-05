@@ -275,202 +275,278 @@ nav.menu-mobile ul li{
 }
 /* cardapio *//* === Cardápio Geral === */
 .aviso{
-    
-    background-color: #ffe6e9;
-    color: #004d6d;
-    padding: 20px 50px;
-    border-radius: 10px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 20px auto; /* <-- Isso centraliza */
-    justify-content: center;
-}
-.cardapiozinho {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #F5F5F5;
-  padding: 40px 20px;
-  gap: 40px;
-}
+            background-color: #ffe6e9;
+            color: #004d6d;
+            padding: 20px 50px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            max-width: 100%;
+            margin: 0 auto 20px auto; /* <-- Isso centraliza */
+            justify-content: center;
+        }
+        .cardapiozinho {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #F5F5F5;
+          padding: 40px 20px;
+          gap: 40px;
+        }
 
-.menu-cardapio {
-  text-align: center;
-}
+        .menu-cardapio {
+          text-align: center;
+        }
 
-.menu-cardapio h2 {
-  font-size: 2rem;
-  color: #26678A;
-  font-family: 'Poppins', serif;
-  font-weight: bold;
-}
+        .menu-cardapio h2 {
+          font-size: 2rem;
+          color: #26678A;
+          font-family: 'Poppins', serif;
+          font-weight: bold;
+        }
 
-.menu-cardapio p {
-  color: #F49FB6;
-  font-family: 'Poppins', serif;
-}
+        .menu-cardapio p {
+          color: #F49FB6;
+          font-family: 'Poppins', serif;
+        }
 
-.menu-cardapio ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 0;
-  margin-top: 10px;
-  border-bottom: 1px solid #ccc;
-}
+        .menu-cardapio ul {
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          padding: 0;
+          margin-top: 10px;
+          border-bottom: 1px solid #ccc;
+        }
 
-.menu-cardapio a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #999;
-  padding: 10px;
-  transition: 0.3s;
-  font-family: 'Poppins', serif;
-}
+        .menu-cardapio a {
+          text-decoration: none;
+          font-weight: bold;
+          color: #999;
+          padding: 10px;
+          transition: 0.3s;
+          font-family: 'Poppins', serif;
+        }
 
-.menu-cardapio a:hover,
-.menu-cardapio a.active {
-  color: #e91e63;
-}
+        .menu-cardapio a:hover,
+        .menu-cardapio a.active {
+          color: #e91e63;
+        }
 
-/* === Slider === */
-.slider-container {
-  position: relative;
-  width: 100%;
-  padding: 0 40px;
-   overflow: hidden;
-}
+        /* === Slider === */
+        .slider-container {
+          position: relative;
+          width: 100%;
+          padding: 0 40px;
+          overflow: hidden;
+        }
 
-.produtos-wrapper {
-  overflow: visible;
-  width: 100%;
-}
+        .produtos-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0;
+        }
+        
+        .produtos-grid-c {
+            display: flex;
+            gap: 25px;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Produto */
+        .produto {
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            width: 280px;
+            flex: 0 0 280px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: 2px solid transparent;
+        }
+        
+        .produto::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,107,139,0.1) 0%, rgba(255,107,139,0.05) 100%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .produto:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(244, 159, 182, 0.3);
+            border: 2px solid #ff6b8b;
+        }
+        
+        .produto:hover::before {
+            opacity: 1;
+        }
+        
+        .img-mosaico-single-c {
+            width: 100%;
+            height: 220px;
+            border-radius: 15px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .produto:hover .img-mosaico-single-c {
+            transform: scale(1.05);
+        }
+        
+        .img-mosaico-single-c::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .produto:hover .img-mosaico-single-c::after {
+            opacity: 1;
+        }
+        
+        .nome-c {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .produto:hover .nome-c {
+            color: #ff6b8b;
+        }
+        
+        .preco {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff6b8b;
+            margin-bottom: 15px;
+        }
+        
+        .btn-add {
+            display: inline-block;
+            background: #ff6b8b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .produto:hover .btn-add {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-add:hover {
+            background: #e55a78;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+        }
 
-.produtos-grid-c {
-  display: flex;
-  transition: transform 0.4s ease;
-  gap: 20px;
-}
+        /* ===== Lista de Preços ===== */
+        .produto ul {
+          list-style: none;
+          padding: 0;
+          margin-top: 10px;
+          text-align: left;
+        }
 
-/* === Produto === */
-.produto {
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  padding: 15px;
-  width: 260px;
-  flex: 0 0 260px;
-  text-align: center;
-  transition: transform 0.3s;
-}
+        .produto ul li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #f9f9f9;
+          padding: 8px 12px;
+          border-radius: 8px;
+          margin-bottom: 6px;
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          color: #333;
+          transition: background-color 0.3s;
+        }
 
-.produto:hover {
-  transform: scale(1.03);
-  
-}
+        .produto ul li:hover {
+          background-color: #fce9ef;
+        }
 
-.img-mosaico-single-c {
-  width: 100%;
-  padding-top: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-}
+        .produto ul li span {
+          color: #F78CA2;
+          font-weight: 600;
+        }
 
-.nome-c {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: #2B2B2B;
-  margin: 8px 0;
-}
+        /* === Botões do Carrossel === */
+        .carousel-button {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255, 255, 255, 0.85);
+          border-radius: 50%;
+          border: none;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          font-size: 20px;
+          color: #333;
+          box-shadow: 0 0 5px rgba(0,0,0,0.2);
+          transition: background-color 0.3s;
+          z-index: 10;
+        }
 
-.preco {
-  font-family: 'Poppins', sans-serif;
-  color: #F78CA2;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 10px;
-}
+        .carousel-button:hover {
+          background: #F49FB6;
+          color: #fff;
+        }
 
-/* ===== Lista de Preços ===== */
-.produto ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-  text-align: left;
-}
+        .carousel-button.prev {
+          left: 5px;
+        }
 
-.produto ul li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f9f9f9;
-  padding: 8px 12px;
-  border-radius: 8px;
-  margin-bottom: 6px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  color: #333;
-  transition: background-color 0.3s;
-}
+        .carousel-button.next {
+          right: 5px;
+        }
 
-.produto ul li:hover {
-  background-color: #fce9ef;
-}
+        /* === Controle de visibilidade === */
+        .cardapio {
+          display: none;
+          width: 100%;
+        }
 
-.produto ul li span {
-  color: #F78CA2;
-  font-weight: 600;
-}
-
-
-/* === Botões do Carrossel === */
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 50%;
-  border: none;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 20px;
-  color: #333;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  transition: background-color 0.3s;
-  z-index: 10;
-}
-
-.carousel-button:hover {
-  background: #F49FB6;
-  color: #fff;
-}
-
-.carousel-button.prev {
-  left: 5px;
-}
-
-.carousel-button.next {
-  right: 5px;
-}
-
-/* === Controle de visibilidade === */
-.cardapio {
-  display: none;
-  width: 100%;
-}
-
-.cardapio.ativo {
-  display: block;
-}
+        .cardapio.ativo {
+          display: block;
+        }
 
 
 /*contato*/
@@ -624,6 +700,7 @@ button img {
 .whatsapp-float:hover::after {
   opacity: 1;
 }
+
 
 
 
