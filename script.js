@@ -108,30 +108,79 @@ document.addEventListener('DOMContentLoaded', () => {
 
             atualizarContador();
             mostrarNotificacao(`✅ ${nome} adicionado ao pedido!`);
+            renderizarPedido(); // Atualiza a lista de pedidos visível
+            atualizarTotalPedido()
         });
     });
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
     if (btnEnviarWhats) {
         btnEnviarWhats.addEventListener('click', () => {
-            if (pedido.length === 0) {
-                mostrarNotificacao('Adicione produtos ao pedido primeiro!');
-                return;
-            }
+        
+ let mensagem ='Olá! Gostaria de fazer';
 
-            const total = pedido.reduce((sum, item) => sum + item.preco, 0);
-            let mensagem = 'Olá! Gostaria de fazer o seguinte pedido:\n\n';
+        if (pedido.length > 0) {
+            mensagem += ' o seguinte pedido:\n\n';
+
             pedido.forEach(item => {
                 mensagem += `- ${item.nome}: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
             });
-            mensagem += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*`;
-            mensagem += '\n\nAguardo confirmação, obrigado!';
 
-            const numero = "5198097470";
-            const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-            window.open(url, '_blank');
-        });
+            const total = pedido.reduce((sum, item) => sum + item.preco, 0);
+            mensagem += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*`;
+        } else {
+            mensagem += ' um pedido.';
+        }
+
+        mensagem += '\n\nAguardo confirmação, obrigado!';
+
+        const numero = "5198097470";
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
+    });
+}
+
+    function renderizarPedido() {
+    const container = document.querySelector('.produtos-pedido');
+    container.innerHTML = ''; // limpa antes de re-renderizar
+
+    if (pedido.length === 0) {
+        container.innerHTML = '<p class="descricao-pedidos">Seu pedido está vazio.</p>';
+        return;
     }
+
+    pedido.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.classList.add('item-pedido');
+        div.innerHTML = `
+            <span>${item.nome}</span>
+            <span>R$ ${item.preco.toFixed(2).replace('.', ',')}</span>
+            <button class="remover-item" data-index="${index}">❌</button>
+        `;
+        container.appendChild(div);
+    });
+
+    // Remover item do pedido
+    container.querySelectorAll('.remover-item').forEach(botao => {
+        botao.addEventListener('click', () => {
+            const index = botao.getAttribute('data-index');
+            pedido.splice(index, 1); // remove do array
+            atualizarContador();
+            renderizarPedido();
+            atualizarTotalPedido()
+        });
+    });
+}   
+// atualiza o total do pedido
+atualizarTotalPedido(); 
+function atualizarTotalPedido() {
+    const total = pedido.reduce((sum, item) => sum + item.preco, 0);
+    const totalEl = document.getElementById('total-valor');
+    if (totalEl) {
+        totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+    }
+}
+
 
     // 5. Menu mobile
     if (menuToggle && menuMobile) {
@@ -145,4 +194,5 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ESTADO INICIAL DA PÁGINA ---
     mostrarSecao('cones'); // Mostra a seção "Cones" por padrão
     atualizarContador();   // Inicia o contador (começará em 0)
+    renderizarPedido();
 });
