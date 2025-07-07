@@ -919,6 +919,78 @@ button img {
             justify-content: center;
             gap: 8px;
         }
+        .formatos-tortas {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.menu-formatos {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 20px;
+}
+
+.menu-link-formato {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.menu-link-formato.active {
+    background-color: #26678A;
+    color: white;
+}
+
+/* Esconder seções não ativas */
+.secao-tortas {
+    display: none;
+}
+
+.secao-tortas.ativo {
+    display: block;
+}
+
+/* Estilos para controles de seleção */
+.opcoes-torta {
+    margin: 15px 0;
+}
+
+.selecao {
+    margin-bottom: 10px;
+}
+
+.selecao label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.opcoes {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-opcao {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-opcao[data-selecionado] {
+    background-color: #ee91c7;
+    color: white;
+
+}
       
 
 

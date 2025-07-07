@@ -215,80 +215,116 @@
             </div>
         </section>
 
-        <section class="cardapio" id="tortas">
-            <div class="slider-container">
-                <div class="aviso">
-                    <p>💡Nossas tortas são disponíveis em diferentes tamanhos e também por fatias</p>
-                </div>
-                <button class="carousel-button prev">❮</button>
-                <div class="produtos-wrapper">
-                    <div class="produtos-grid-c">
-                        <!-- Tortas -->
-                        <div class="produto">
-                            <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango.jpeg);"></div>
-                            <p class="nome-c">Torta de Morango</p>
-                            <p class="preco">R$ 65,00</p>
-                            <ul>
-                                <li>Fatia individual <span>R$ 8,50</span></li>
-                                <li>Pequena (6 fatias) <span>R$ 45,00</span></li>
-                                <li>Média (8 fatias) <span>R$ 60,00</span></li>
-                                <li>Grande (12 fatias) <span>R$ 85,00</span></li>
-                            </ul>
-                            <button class="btn-add">Adicionar ao pedido</button>
-                        </div>
-                        <div class="produto">
-                            <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango\ com\ laço.jpeg);"></div>
-                            <p class="nome-c">Torta de Chocolate</p>
-                            <p class="preco">R$ 70,00</p>
-                            <ul>
-                                <li>Fatia individual <span>R$ 9,00</span></li>
-                                <li>Pequena (6 fatias) <span>R$ 48,00</span></li>
-                                <li>Média (8 fatias) <span>R$ 65,00</span></li>
-                                <li>Grande (12 fatias) <span>R$ 90,00</span></li>
-                            </ul>
-                            <button class="btn-add">Adicionar ao pedido</button>
-                        </div>
-                        <div class="produto">
-                            <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango\ enfeitada.jpeg);"></div>
-                            <p class="nome-c">Torta de Limão</p>
-                            <p class="preco">R$ 68,00</p>
-                            <ul>
-                                <li>Fatia individual <span>R$ 8,50</span></li>
-                                <li>Pequena (6 fatias) <span>R$ 45,00</span></li>
-                                <li>Média (8 fatias) <span>R$ 60,00</span></li>
-                                <li>Grande (12 fatias) <span>R$ 85,00</span></li>
-                            </ul>
-                            <button class="btn-add">Adicionar ao pedido</button>
-                        </div>
-                        <div class="produto">
-                            <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango.jpeg);"></div>
-                            <p class="nome-c">Torta de Frutas</p>
-                            <p class="preco">R$ 72,00</p>
-                            <ul>
-                                <li>Fatia individual <span>R$ 9,50</span></li>
-                                <li>Pequena (6 fatias) <span>R$ 50,00</span></li>
-                                <li>Média (8 fatias) <span>R$ 68,00</span></li>
-                                <li>Grande (12 fatias) <span>R$ 95,00</span></li>
-                            </ul>
-                            <button class="btn-add">Adicionar ao pedido</button>
-                        </div>
-                        <div class="produto">
-                            <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango\ com\ laço.jpeg);"></div>
-                            <p class="nome-c">Torta Especial</p>
-                            <p class="preco">R$ 75,00</p>
-                            <ul>
-                                <li>Fatia individual <span>R$ 10,00</span></li>
-                                <li>Pequena (6 fatias) <span>R$ 55,00</span></li>
-                                <li>Média (8 fatias) <span>R$ 70,00</span></li>
-                                <li>Grande (12 fatias) <span>R$ 100,00</span></li>
-                            </ul>
-                            <button class="btn-add">Adicionar ao pedido</button>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-button next">❯</button>
+
+<section class="cardapio" id="tortas">
+    <!-- Navegação por formato -->
+    <div class="formatos-tortas">
+        <ul class="menu-formatos">
+            <li><a href="#circular" class="menu-link-formato active">Circular</a></li>
+            <li><a href="#retangular" class="menu-link-formato">Retangular</a></li>
+        </ul>
+    </div>
+
+    <!-- Seção Circular (ativa por padrão) -->
+    <div class="secao-tortas ativo" id="circular">
+        <div class="slider-container">
+            <div class="aviso">
+                <p>💡 Tortas circulares disponíveis em 15 ou 30 fatias</p>
             </div>
-        </section>
+            <button class="carousel-button prev">❮</button>
+            <div class="produtos-wrapper">
+                <div class="produtos-grid-c">
+                    <!-- Tortas Circulares -->
+                    <div class="produto" data-precos='{"15": 65.00, "30": 120.00}'>
+                        <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango.jpeg);"></div>
+                        <p class="nome-c">Torta de Morango</p>
+                        <p class="preco">R$ 65,00</p>
+                        <div class="opcoes-torta">
+                            <div class="selecao">
+                                <label>Tamanho:</label>
+                                <div class="opcoes">
+                                    <button class="btn-opcao tamanho" data-tamanho="15" data-selecionado>15 fatias</button>
+                                    <button class="btn-opcao tamanho" data-tamanho="30">30 fatias</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add">Adicionar ao pedido</button>
+                    </div>
+                    
+                    <!-- Repetir para outras tortas circulares -->
+                    <div class="produto" data-precos='{"15": 70.00, "30": 130.00}'>
+                        <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango\ com\ laço.jpeg);"></div>
+                        <p class="nome-c">Torta de Chocolate</p>
+                        <p class="preco">R$ 70,00</p>
+                        <div class="opcoes-torta">
+                            <div class="selecao">
+                                <label>Tamanho:</label>
+                                <div class="opcoes">
+                                    <button class="btn-opcao tamanho" data-tamanho="15" data-selecionado>15 fatias</button>
+                                    <button class="btn-opcao tamanho" data-tamanho="30">30 fatias</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add">Adicionar ao pedido</button>
+                    </div>
+                    
+                    <!-- Mais tortas circulares... -->
+                </div>
+            </div>
+            <button class="carousel-button next">❯</button>
+        </div>
+    </div>
+
+    <!-- Seção Retangular (oculta inicialmente) -->
+    <div class="secao-tortas" id="retangular">
+        <div class="slider-container">
+            <div class="aviso">
+                <p>💡 Tortas retangulares disponíveis em 15 ou 30 fatias</p>
+            </div>
+            <button class="carousel-button prev">❮</button>
+            <div class="produtos-wrapper">
+                <div class="produtos-grid-c">
+                    <!-- Tortas Retangulares -->
+                    <div class="produto" data-precos='{"15": 75.00, "30": 140.00}'>
+                        <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango\ enfeitada.jpeg);"></div>
+                        <p class="nome-c">Torta de Morango</p>
+                        <p class="preco">R$ 75,00</p>
+                        <div class="opcoes-torta">
+                            <div class="selecao">
+                                <label>Tamanho:</label>
+                                <div class="opcoes">
+                                    <button class="btn-opcao tamanho" data-tamanho="15" data-selecionado>15 fatias</button>
+                                    <button class="btn-opcao tamanho" data-tamanho="30">30 fatias</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add">Adicionar ao pedido</button>
+                    </div>
+                    
+                    <!-- Repetir para outras tortas retangulares -->
+                    <div class="produto" data-precos='{"15": 80.00, "30": 150.00}'>
+                        <div class="img-mosaico-single-c" style="background-image: url(./imagens/torta\ de\ morango.jpeg);"></div>
+                        <p class="nome-c">Torta de Chocolate</p>
+                        <p class="preco">R$ 80,00</p>
+                        <div class="opcoes-torta">
+                            <div class="selecao">
+                                <label>Tamanho:</label>
+                                <div class="opcoes">
+                                    <button class="btn-opcao tamanho" data-tamanho="15" data-selecionado>15 fatias</button>
+                                    <button class="btn-opcao tamanho" data-tamanho="30">30 fatias</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add">Adicionar ao pedido</button>
+                    </div>
+                    
+                    <!-- Mais tortas retangulares... -->
+                </div>
+            </div>
+            <button class="carousel-button next">❯</button>
+        </div>
+    </div>
+</section>
 
         <section class="cardapio" id="bolos">
             <div class="slider-container">

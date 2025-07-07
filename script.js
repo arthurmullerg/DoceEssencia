@@ -98,20 +98,71 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Adicionar produto ao pedido
     botoesAdicionar.forEach(botao => {
-        botao.addEventListener('click', () => {
-            const produtoEl = botao.closest('.produto, .produto-queridinho');
-            const nome = produtoEl.querySelector('.nome, .nome-c').textContent;
-            const precoTexto = produtoEl.querySelector('.preco').textContent;
-            const preco = parseFloat(precoTexto.replace('R$', '').replace(',', '.').trim());
+    botao.addEventListener('click', function() {
+        const produto = this.closest('.produto');
+        const nomeBase = produto.querySelector('.nome-c').textContent;
+        
+        // Obter formato da seção atual
+        const secao = produto.closest('.secao-tortas');
+        const formato = secao.id === 'circular' ? 'Circular' : 'Retangular';
+        
+        // Obter tamanho selecionado
+        const tamanho = produto.querySelector('.btn-opcao[data-selecionado]').dataset.tamanho;
+        
+        // Obter preço
+        const precos = JSON.parse(produto.dataset.precos);
+        const preco = precos[tamanho];
+        
+        // Montar nome completo
+        const nomeCompleto = `${nomeBase} (${formato}, ${tamanho} fatias)`;
+        
+        pedido.push({ nome: nomeCompleto, preco });
+        
+        // Resto do código permanece igual
+        atualizarContador();
+        mostrarNotificacao(`✅ ${nomeCompleto} adicionado ao pedido!`);
+        renderizarPedido();
+        atualizarTotalPedido();
+    });
+});
 
-            pedido.push({ nome, preco });
+document.addEventListener('click', function(e) {
+    if(e.target.classList.contains('btn-opcao')) {
+        const btn = e.target;
+        const produto = btn.closest('.produto');
+        const precos = JSON.parse(produto.dataset.precos);
+        const tamanho = btn.dataset.tamanho;
+        
+        // Atualizar seleção
+        produto.querySelectorAll('.btn-opcao').forEach(b => {
+            delete b.dataset.selecionado;
+        });
+        btn.dataset.selecionado = true;
+        
+        // Atualizar preço
+        const preco = precos[tamanho];
+        produto.querySelector('.preco').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
+    }
+});
 
-            atualizarContador();
-            mostrarNotificacao(`✅ ${nome} adicionado ao pedido!`);
-            renderizarPedido(); // Atualiza a lista de pedidos visível
-            atualizarTotalPedido()
+document.querySelectorAll('.menu-link-formato').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        
+        // Atualizar links ativos
+        document.querySelectorAll('.menu-link-formato').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Mostrar seção correspondente
+        document.querySelectorAll('.secao-tortas').forEach(secao => {
+            secao.classList.remove('ativo');
+            if(secao.id === targetId) {
+                secao.classList.add('ativo');
+            }
         });
     });
+});
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
     if (btnEnviarWhats) {
