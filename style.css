@@ -4,6 +4,25 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #26678A;
+  border-radius: 6px;
+  border: 2px solid #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1d4f6b;
+}
 html,body{
    height: 100%;   
 }
@@ -35,33 +54,6 @@ h1{
     font-size: 50px;
 }
 
-.menu-mobile{
-    display: none;
-    float: right;
-    width: 28px;
-    cursor: pointer;
-    height: 28px;
-    margin-top: 7px;
-    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/640px-Hamburger_icon.svg.png);
-    background-size: 100% 100%;
-}
-nav.menu-mobile ul{
-    z-index: 999 ;
-    position:absolute;
-    left: 0;
-    top: 60px;
-    background-color: white;
-    text-align: center;
-    width: 100%;    
-    list-style-type: none;
-    display: none;
-}
-nav.menu-mobile ul li{
-    padding: 10px 0;
-}
-nav.menu-mobile ul li{
-    text-transform: uppercase;
-}
 .menu-desktop{
     text-align: center;
 }
@@ -430,11 +422,12 @@ nav.menu-mobile ul li{
         }
         
         .nome-c {
-            font-size: 1.3rem;
+            font-size: 16px;
             font-weight: 600;
             color: #333;
             margin-bottom: 10px;
             transition: color 0.3s ease;
+             font-family:'Poppins' ;
         }
         
         .produto:hover .nome-c {
@@ -463,6 +456,7 @@ nav.menu-mobile ul li{
     box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
     border: none;
     cursor: pointer;
+     font-family:'Poppins' ;
 }
         
         .produto:hover .btn-add {
@@ -639,7 +633,7 @@ button img {
   border-left: 6px solid #f4f43b;
   margin-bottom: 10px;
   color: #4e3c24;
-  text-align: jus;
+  text-align: justify;
 }
 .texto-aviso p{
   font-family: 'Poppins', serif;
@@ -766,11 +760,12 @@ button img {
         .descricao-pedidos {
             text-align: center;
             color: #666;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Poppins', serif;
         }
 
         .pedido-container {
@@ -876,6 +871,7 @@ button img {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            
         }
 
         .total-pedido {
@@ -884,12 +880,14 @@ button img {
             align-items: center;
             padding-bottom: 1rem;
             border-bottom: 2px dashed  #e0e0e0;
+             font-family:'Poppins' ;
         }
 
         .total-label {
             font-size: 1.3rem;
             font-weight: 600;
             color:  #292f36;
+             font-family:'Poppins' ;
         }
 
         .total-valor {
@@ -1002,6 +1000,9 @@ button img {
   }
  .img-contato{
   display: none;
+ }
+ footer{
+  font-size: 8px;
  }
  .servicos .container{
   flex-direction: column;
