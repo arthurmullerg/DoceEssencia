@@ -448,22 +448,22 @@ nav.menu-mobile ul li{
             margin-bottom: 15px;
         }
         
-        .btn-add {
-            display: inline-block;
-            background: #ff6b8b;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
-            border: none;
-            cursor: pointer;
-        }
+      .btn-add {
+    display: inline-block;
+    background: #ff6b8b;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 139, 0.4);
+    border: none;
+    cursor: pointer;
+}
         
         .produto:hover .btn-add {
             opacity: 1;
@@ -1078,8 +1078,45 @@ button img {
     font-size: 0.9rem;
   }
   
-  
+   .menu-cardapio ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .menu-cardapio a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .produto {
+        width: 85%;
+        margin: 0 auto 20px;
+    }
+    
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+       .aviso {
+        padding: 15px 20px;
+        width: 90%;
+    }
+    
+    .notificacao {
+        width: 80%;
+        right: 10%;
+        top: 10px;
+    }
+     .btn-add {
+        opacity: 1 !important; /* Força a visibilidade */
+        transform: translateY(0) !important; /* Remove a animação */
+        padding: 10px 20px; /* Tamanho um pouco menor para mobile */
+        font-size: 14px; /* Fonte menor */
+        margin-top: 15px; /* Espaçamento maior */
+    }
 }
+
 
 @media (max-width: 480px) {
   .contato {
