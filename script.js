@@ -98,32 +98,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Adicionar produto ao pedido
     botoesAdicionar.forEach(botao => {
-    botao.addEventListener('click', function() {
+    botao.addEventListener('click', function () {
         const produto = this.closest('.produto');
-        const nomeBase = produto.querySelector('.nome-c').textContent;
-        
-        // Obter formato da seção atual
-        const secao = produto.closest('.secao-tortas');
-        const formato = secao.id === 'circular' ? 'Circular' : 'Retangular';
-        
-        // Obter tamanho selecionado
-        const tamanho = produto.querySelector('.btn-opcao[data-selecionado]').dataset.tamanho;
-        
-        // Obter preço
-        const precos = JSON.parse(produto.dataset.precos);
-        const preco = precos[tamanho];
-        
-        // Montar nome completo
-        const nomeCompleto = `${nomeBase} (${formato}, ${tamanho} fatias)`;
-        
-        pedido.push({ nome: nomeCompleto, preco });
-        
-        // Resto do código permanece igual
-        atualizarContador();
-        mostrarNotificacao(`✅ ${nomeCompleto} adicionado ao pedido!`);
-        renderizarPedido();
-        atualizarTotalPedido();
+        const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
+
+        let nomeCompleto = nomeBase;
+        let preco;
+
+        const temOpcoes = produto.querySelector('.btn-opcao');
+
+        if (temOpcoes) {
+            // --- Produtos com opções (ex: Tortas ou Bolos) ---
+            const tamanhoEl = produto.querySelector('.btn-opcao[data-selecionado]');
+            if (!tamanhoEl) {
+                mostrarNotificacao('⚠️ Por favor, selecione um tamanho!');
+                return;
+            }
+
+            const tamanho = tamanhoEl.dataset.tamanho;
+            const precos = JSON.parse(produto.dataset.precos || '{}');
+            preco = precos[tamanho];
+
+            const secaoTorta = produto.closest('.secao-tortas');
+            if (secaoTorta) {
+                const formato = secaoTorta.id === 'circular' ? 'Circular' : 'Retangular';
+                nomeCompleto = `${nomeBase} (${formato}, ${tamanho} fatias)`;
+            } else {
+                nomeCompleto = `${nomeBase} (${tamanho})`;
+            }
+
+        } else {
+            // --- Produtos simples (ex: Cones) ---
+            const precoEl = produto.querySelector('.preco');
+            if (precoEl) {
+                const precoTexto = precoEl.textContent || '';
+                preco = parseFloat(precoTexto.replace('R$', '').replace(',', '.').trim());
+            }
+        }
+
+        // Adicionar ao pedido se o preço for válido
+        if (typeof preco === 'number' && !isNaN(preco)) {
+            pedido.push({ nome: nomeCompleto, preco });
+            atualizarContador();
+            mostrarNotificacao(`✅ ${nomeCompleto} adicionado ao pedido!`);
+            renderizarPedido();
+            atualizarTotalPedido();
+        } else {
+            console.error("❌ Preço inválido ou não encontrado para:", produto);
+            mostrarNotificacao('❌ Erro ao adicionar o item. Preço não encontrado.');
+        }
     });
+});
+
+// === Selecionar botão de tamanho ===
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('btn-opcao')) {
+        const grupo = e.target.closest('.produto');
+        if (!grupo) return;
+
+        const botoes = grupo.querySelectorAll('.btn-opcao');
+        botoes.forEach(btn => btn.removeAttribute('data-selecionado'));
+
+        e.target.setAttribute('data-selecionado', true);
+    }
 });
 
 document.addEventListener('click', function(e) {
