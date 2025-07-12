@@ -995,6 +995,26 @@ button img {
   .card-sabor.vazio {
     visibility: hidden;
   }
+  .btn-add-sabor {
+    background-color: #ff6b8b; 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.btn-add-sabor:hover {
+    background-color: #fc5176; /* tom mais escuro no hover */
+}
+
 .menu-formatos {
     display: flex;
     justify-content: center;

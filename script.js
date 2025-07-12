@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.btn-opcao-retangular').forEach(b => b.removeAttribute('data-selecionado'));
+        btn.setAttribute('data-selecionado', true);
+        mostrarNotificacao(`✅ Tamanho ${btn.dataset.tamanho} fatias selecionado! Agora escolha o sabor.`);
+    });
+});
+
     // Mostra a seção correta do cardápio (Cones, Tortas, etc.)
     function mostrarSecao(id) {
         secoesCardapio.forEach(secao => {
@@ -175,27 +183,59 @@ if (next) {
 // Adicionar sabor ao pedido
 document.querySelectorAll('.btn-add-sabor').forEach(botao => {
     botao.addEventListener('click', function () {
-        if (!tamanhoTortaRedondaSelecionado) {
-            mostrarNotificacao('⚠️ Por favor, selecione o tamanho da torta primeiro!');
+        const cardSabor = botao.closest('.card-sabor');
+        const secaoPai = botao.closest('.secao-tortas');
+
+        let tamanhoSelecionado = null;
+        let formato = '';
+        let nomeCompleto = '';
+        let preco = 0;
+
+        if (secaoPai && secaoPai.id === 'Redonda') {
+            const botaoSelecionado = document.querySelector('.secao-tortas#Redonda .btn-opcao-redonda[data-selecionado]');
+            if (!botaoSelecionado) {
+                mostrarNotificacao('⚠️ Por favor, selecione o tamanho da torta redonda!');
+                return;
+            }
+
+            formato = 'Torta Redonda';
+            tamanhoSelecionado = botaoSelecionado.dataset.tamanho;
+            preco = parseFloat(botaoSelecionado.dataset.preco);
+        } 
+        else if (secaoPai && secaoPai.id === 'retangular') {
+            const botaoSelecionado = document.querySelector('.secao-tortas#retangular .btn-opcao-retangular[data-selecionado]');
+            if (!botaoSelecionado) {
+                mostrarNotificacao('⚠️ Por favor, selecione o tamanho da torta retangular!');
+                return;
+            }
+
+            formato = 'Torta Retangular';
+            tamanhoSelecionado = botaoSelecionado.dataset.tamanho;
+            preco = parseFloat(botaoSelecionado.dataset.preco);
+        } 
+        else {
+            mostrarNotificacao('⚠️ Formato da torta não identificado!');
             return;
         }
 
         const nomeSabor = this.dataset.sabor || 'Sabor personalizado';
-        const { tamanho, preco } = tamanhoTortaRedondaSelecionado;
-
-        const nomeCompleto = `Torta Redonda (${tamanho} fatias) - Sabor: ${nomeSabor}`;
+        nomeCompleto = `${formato} (${tamanhoSelecionado} fatias) - Sabor: ${nomeSabor}`;
 
         pedido.push({ nome: nomeCompleto, preco });
         atualizarContador();
-        mostrarNotificacao(`✅ ${nomeSabor} (${tamanho} fatias) adicionado ao pedido!`);
+        mostrarNotificacao(`✅ ${nomeSabor} (${tamanhoSelecionado} fatias) adicionado ao pedido!`);
         renderizarPedido();
         atualizarTotalPedido();
 
         // Resetar seleção (opcional)
-        tamanhoTortaRedondaSelecionado = null;
-        document.querySelectorAll('.btn-opcao-redonda').forEach(b => b.removeAttribute('data-selecionado'));
+        if (formato === 'Torta Redonda') {
+            document.querySelectorAll('.btn-opcao-redonda').forEach(b => b.removeAttribute('data-selecionado'));
+        } else {
+            document.querySelectorAll('.btn-opcao-retangular').forEach(b => b.removeAttribute('data-selecionado'));
+        }
     });
 });
+
 
 // === Selecionar botão de tamanho ===
 document.addEventListener('click', function (e) {
