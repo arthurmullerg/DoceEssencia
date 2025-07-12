@@ -922,6 +922,79 @@ button img {
     margin: 20px 0;
 }
 
+ .sabores-container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .titulo-principal {
+    text-align: center;
+    color: #e91e63;
+    font-size: 32px;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  
+  .titulo-principal:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #e91e63;
+    margin: 15px auto;
+  }
+  
+  .sabores-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .sabor-coluna {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .card-sabor {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    flex: 1;
+  }
+  
+  .card-sabor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.2);
+  }
+  
+  .emoji-sabor {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .nome-sabor {
+    color: #e91e63;
+    margin: 10px 0;
+    font-size: 22px;
+  }
+  
+  .descricao-sabor {
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .card-sabor.vazio {
+    visibility: hidden;
+  }
 .menu-formatos {
     display: flex;
     justify-content: center;
