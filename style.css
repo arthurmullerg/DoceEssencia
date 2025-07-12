@@ -1082,6 +1082,103 @@ button img {
     color: white;
 
 }
+ .galeria-tortas {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .titulo-galeria {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #e91e63;
+        margin-bottom: 40px;
+        position: relative;
+    }
+    
+    .titulo-galeria:after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(to right, #e91e63, #ff80ab);
+        border-radius: 2px;
+    }
+    
+    .grid-tortas {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+    
+    .card-torta {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+        aspect-ratio: 1/1;
+    }
+    
+    .card-torta:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(233, 30, 99, 0.2);
+    }
+    
+    .imagem-torta {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: all 0.5s ease;
+    }
+    
+    .card-torta:hover .imagem-torta {
+        transform: scale(1.05);
+    }
+    
+    .overlay-torta {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        padding: 20px;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+        text-align: center;
+    }
+    
+    .card-torta:hover .overlay-torta {
+        transform: translateY(0);
+    }
+    
+    .overlay-torta span {
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: block;
+    }
+    
+    @media (max-width: 900px) {
+        .grid-tortas {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .grid-tortas {
+            grid-template-columns: 1fr;
+        }
+        
+        .titulo-galeria {
+            font-size: 2rem;
+        }
+    }
       
 
 
