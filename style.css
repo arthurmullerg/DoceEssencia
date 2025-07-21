@@ -41,7 +41,7 @@ header{
     clear: both;
 }
 .container{
-    max-width: 1280px;
+    max-width: 900px;
     margin: 0 auto;
     width: 100%;
 }
@@ -97,7 +97,7 @@ h1{
 
 .mosaico-single{
     float: left;
-    width: calc(100% / 5);
+    width: calc(100% / 2);
 }
 .img-mosaico-single{
     width: 100%;
