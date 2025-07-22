@@ -458,6 +458,24 @@ h1{
     cursor: pointer;
      font-family:'Poppins' ;
 }
+.btn-add-pote,
+.btn-add-escondidinho,
+.btn-add-fatia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px;
+    background: #ff6b8b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(94, 44, 4, 0.2);
+}
         
         .produto:hover .btn-add {
             opacity: 1;
@@ -1047,6 +1065,102 @@ button img {
 .secao-tortas.ativo {
     display: block;
 }
+.tipo-conteudo {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* IMAGEM DO BROWNIE */
+.img-solo {
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 8px 16px rgba(94, 44, 4, 0.2);
+    border: 3px solid #f0e6d8;
+    
+}
+
+/* TÍTULO */
+.sabores-titulo {
+    text-align: center;
+    color: #ff6b8b;
+    font-size: 1.4rem;
+    margin: 15px 0 20px;
+    font-weight: 600;
+    position: relative;
+    font-family: 'Poppins', serif;
+}
+
+.sabores-titulo:after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #e8c39e;
+    margin: 8px auto 0;
+    border-radius: 3px;
+}
+
+/* OPÇÕES DE SABOR */
+.flavor-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.flavor-option {
+    flex: 1;
+    padding: 12px 8px;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f9f5f0;
+    border: 1px solid #f0e6d8;
+}
+
+.flavor-option.selected {
+    background: #f792a8;
+    border-color: #5e2c04;
+    color: rgb(0, 0, 0);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(94, 44, 4, 0.2);
+}
+
+.flavor-icon {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.flavor-name {
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Poppins', serif;
+}
+.preco-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.preco {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #5e2c04;
+}
+
+
 
 /* Estilos para controles de seleção */
 
@@ -1056,9 +1170,9 @@ button img {
 
 .selecao-tamanho-redonda {
     width: 100%;
-    max-width: 500px; /* Limita a largura máxima */
+  
     margin: 0 auto; /* Centraliza o bloco */
-    padding: 10px;
+    
     box-sizing: border-box;
 }
 

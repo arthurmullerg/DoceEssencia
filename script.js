@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FUNÇÕES ---
     configurarMenuBrownie();
+      configurarBrownies(); 
 
     document.querySelectorAll('.btn-opcao-redonda').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -323,6 +324,62 @@ function configurarMenuBrownie() {
     if (conteudoPote) {
         conteudoPote.style.display = 'block';
     }
+}
+
+function configurarBrownies() {
+    // Tipos de brownie com seus estilos correspondentes
+    const tiposBrownie = [
+        { id: 'pote', estilo: 'No pote', precoBase: 15 },
+        { id: 'escondidinho', estilo: 'Escondidinho', precoBase: 18 },
+        { id: 'fatia', estilo: 'Fatia', precoBase: 12 }
+    ];
+    
+    tiposBrownie.forEach(tipo => {
+        const container = document.getElementById(`conteudo-${tipo.id}`);
+        if (!container) return;
+        
+        const flavorOptions = container.querySelectorAll('.flavor-option');
+        const btnAdd = container.querySelector(`.btn-add-${tipo.id}`);
+        
+        // Seleção de sabores
+        flavorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                flavorOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                mostrarNotificacao(`✅ Sabor ${this.textContent.trim()} selecionado!`);
+            });
+        });
+        
+        // Adicionar ao pedido
+        if (btnAdd) {
+            btnAdd.addEventListener('click', function() {
+                const selectedOption = container.querySelector('.flavor-option.selected');
+                
+                if (!selectedOption) {
+                    mostrarNotificacao('⚠️ Por favor, selecione um sabor!');
+                    return;
+                }
+                
+                const sabor = selectedOption.getAttribute('data-flavor');
+                const nomeSabor = selectedOption.querySelector('.flavor-name').textContent;
+                const preco = parseFloat(selectedOption.getAttribute('data-preco')) || tipo.precoBase;
+                
+                // Adiciona ao pedido
+                pedido.push({
+                    tipo: 'Brownie',
+                    estilo: tipo.estilo,
+                    sabor: sabor,
+                    nome: `Brownie ${tipo.estilo} - ${nomeSabor}`,
+                    preco: preco
+                });
+                
+                atualizarContador();
+                renderizarPedido();
+                atualizarTotalPedido();
+                mostrarNotificacao(`✅ Brownie ${tipo.estilo} - ${nomeSabor} adicionado!`);
+            });
+        }
+    });
 }
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
