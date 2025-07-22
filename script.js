@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuMobile = document.querySelector('.menu-mobile ul');
 
     // --- FUNÇÕES ---
+    configurarMenuBrownie();
 
     document.querySelectorAll('.btn-opcao-redonda').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -287,6 +288,42 @@ document.querySelectorAll('.menu-link-formato').forEach(link => {
         });
     });
 });
+
+function configurarMenuBrownie() {
+    const brownieLinks = document.querySelectorAll('#brownie .menu-link-formato');
+    
+    brownieLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove a classe active de todos os links
+            brownieLinks.forEach(l => l.classList.remove('active'));
+            
+            // Adiciona a classe active apenas no link clicado
+            this.classList.add('active');
+            
+            // Obtém o tipo do conteúdo a ser mostrado
+            const tipo = this.getAttribute('data-tipo');
+            
+            // Esconde todos os conteúdos de brownie
+            document.querySelectorAll('#brownie .tipo-conteudo').forEach(conteudo => {
+                conteudo.style.display = 'none';
+            });
+            
+            // Mostra apenas o conteúdo correspondente
+            const conteudo = document.getElementById(`conteudo-${tipo}`);
+            if (conteudo) {
+                conteudo.style.display = 'block';
+            }
+        });
+    });
+    
+    // Inicializa mostrando o conteúdo do pote
+    const conteudoPote = document.getElementById('conteudo-pote');
+    if (conteudoPote) {
+        conteudoPote.style.display = 'block';
+    }
+}
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
     if (btnEnviarWhats) {
