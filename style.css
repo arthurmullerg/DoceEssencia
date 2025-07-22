@@ -1301,33 +1301,46 @@ button img {
  footer{
   font-size: 8px;
  }
- .servicos .container{
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
- }
-.servicos  .container .box-servico:nth-of-type(1){
-    width: 60%;
-    padding: 30px 2% ;
-    background-color:#6b8a9e;
-        border-radius: 5px;
+ .servicos .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px; /* Espaçamento maior entre os itens */
+    padding: 20px 15px; /* Adiciona padding nas laterais */
+  }
+  
+  .servicos .container .box-servico {
+    width: 100% !important; /* Ocupa toda largura disponível */
+    padding: 35px 25px !important;
+    margin: 0 !important;
+    border-radius: 12px !important; /* Bordas mais arredondadas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4); /* Sombra sutil */
+  }
 
-}
-.servicos  .container .box-servico:nth-of-type(2){
-    width: 75%;
-    padding: 45px 2% ;
-    background-color:#26678A;
-    background-image: none;
-    border-radius: 8px;
+  
+  /* Mantemos as cores originais mas com um visual mais moderno */
+  .servicos .container .box-servico:nth-of-type(1) {
+    background-color: #6b8a9e !important;
+  }
+  
+  .servicos .container .box-servico:nth-of-type(2) {
+    background-color: #26678A !important;
+  }
+  
+  .servicos .container .box-servico:nth-of-type(3) {
+    background-color: #6b8a9e !important;
+  }
 
-}
-.servicos  .container .box-servico:nth-of-type(3){
-    width: 60%;
-    padding: 30px 2% ;
-    background-color:#6b8a9e;
-        border-radius: 5px;
-
-}
+  /* Ajustamos os títulos e parágrafos */
+  .servicos .box-servico h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .servicos .box-servico p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 .whatsapp-float {
     width: 50px;
     height: 50px;
