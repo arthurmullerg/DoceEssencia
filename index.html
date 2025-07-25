@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="./imagens/icone-site.png">
     <title>Doce Essência | Doces Artesanais em Montenegro</title>
     <meta name="description" content="A Doce Essência é uma confeitaria artesanal em Montenegro - RS. Oferecemos doces artesanais, cones gourmet, bolos de pote e tortas. Encomende agora!">
@@ -32,17 +33,23 @@
     
 </head>
 <body>
-    <header>
-        <h1>Doce Essência</h1>
-        <nav class="menu-desktop">
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#queridinhos">Queridinhos</a></li>
-                <li><a href="#cardapio" class="menu-link-principal">Cardápio</a></li> 
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-        <div class="clear"></div>
+    <header class="header">
+        <div class="header-container">
+            <h1 class="logo">Doce Essência</h1>
+
+            <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars fa-lg" style="color: #345183;"></i>
+            </div>
+
+            <nav class="menu-desktop" id="menu">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#queridinhos">Queridinhos</a></li>
+                    <li><a href="#cardapio" class="menu-link-principal">Cardápio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <section class="mosaico">
