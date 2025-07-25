@@ -1363,6 +1363,7 @@ button img {
    .produto {
         width: calc(100% - 40px); /* Largura quase total */
         margin: 0px 20px;
+        left: 20px;
     }
    
   .carousel-button {
