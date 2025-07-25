@@ -1275,6 +1275,12 @@ button img {
         .grid-tortas {
             grid-template-columns: repeat(2, 1fr);
         }
+         .produto {
+            width: calc(50% - 20px); /* Largura quase total */
+            margin: 0px 10px;
+            left: 15px;
+    }
+   
     }
     
     @media (max-width: 600px) {
@@ -1300,6 +1306,8 @@ button img {
  }
  footer{
   font-size: 8px;
+ 
+    
  }
  .servicos .container {
     flex-direction: column;
@@ -1476,6 +1484,12 @@ button img {
 
 
 @media (max-width: 480px) {
+
+   .produto {
+        width: 160px;
+        flex: 0 0 232px;
+        padding: 12px;
+    }
   .contato {
     padding: 30px 15px;
   }
