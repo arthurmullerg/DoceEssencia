@@ -472,23 +472,6 @@ overlay.addEventListener('click', () => {
     document.body.style.overflow = '';
     toggle.classList.remove('hidden'); // Mostra o ícone novamente
 });
-//Fechar ao deslizar
-let touchStartX = 0;
-sidebar.addEventListener('touchstart', (e) => {
-  touchStartX = e.touches[0].clientX;
-});
-
-sidebar.addEventListener('touchmove', (e) => {
-  if (touchStartX - e.touches[0].clientX > 50) {
-    closeSidebar();
-  }
-});
-
-function closeSidebar() {
-  sidebar.classList.remove('active');
-  overlay.classList.remove('active');
-  document.body.style.overflow = '';
-}
 
     // --- ESTADO INICIAL DA PÁGINA ---
     mostrarSecao('cones'); // Mostra a seção "Cones" por padrão
