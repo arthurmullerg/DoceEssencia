@@ -221,6 +221,17 @@ html,body{
    text-align: center;
    font-family: 'Poppins', sans-serif;
 }
+.titulo-centralizado {
+    font-size: 32px;
+    color: #2B2B2B;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+.titulo-centralizado span {
+    color: #d85a7f;
+}
 
 .subtitulo {
    color: #666;
