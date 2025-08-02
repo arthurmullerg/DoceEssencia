@@ -1404,6 +1404,7 @@ button img {
       .header{
         position: fixed;
         top: 0;
+        width: 100%;
       }
         .servicos{
           display: none;
