@@ -233,6 +233,7 @@
             </div>
            <div class="sabores-container">
   <h2 class="titulo-principal">Nossos Sabores</h2>
+  <p class="frase"> Esses são alguns dos nossos sabores favoritos, mas você pode pedir o seu sabor personalizado! Fale com a gente pelo WhatsApp e crie a torta do jeitinho que você quer.</p>
   <div class="sabores-grid">
     <!-- Coluna 1 -->
     <div class="sabor-coluna">
@@ -589,6 +590,9 @@
         <section class="pedidos" id="pedidos">
             <h2 class="titulo-centralizado">Seu Pedido</h2>
             <p class="descricao-pedidos">Aqui você pode ver e gerenciar os produtos que adicionou ao seu pedido.</p>
+            <div class="aviso-encomenda">
+                <strong>Atenção:</strong> Tortas e barras são feitas somente sob encomenda. Por favor, realize seu pedido com pelo menos 3 dias de antecedência.
+            </div>
             
             <div class="pedido-container">
                 <div class="produtos-pedido">
@@ -600,7 +604,14 @@
                         <span class="total-label">Total do Pedido:</span>
                         <span class="total-valor" id="total-valor">R$ 0,00</span>
                     </div>
-                    </div>  
+                    </div> 
+                    <button id="btn-whats-pedido" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp fa-lg" style="color: #ffffff;"></i>Fazer Pedido
+                </button> 
+        <div class="texto-aviso"> 
+        <p>⚠️Importante: Trabalhamos apenas com encomendas. Não possuímos loja física e não vendemos pelo site. 
+            Entre em contato para fazer seu pedido!</p>
+      </div>
                 </div>
             </div>
         </section>
@@ -608,23 +619,15 @@
 <section class="contato" id="contato">
   <div class="conteudo-contato">
     <div class="texto-botoes">
-      <h2>Encomende agora e <br> deixe seu dia mais doce!</h2>
-      <p>Você merece um momento especial –<br>
-        e a gente entrega o sabor perfeito até você</p>
-      <p>Escolha seu doce favorito e fale <br>
-        com a gente agora mesmo!</p>
-      <div class="texto-aviso"> 
-        <p>⚠️Importante: Trabalhamos apenas com encomendas. Não possuímos loja física e não vendemos pelo site. 
-            Entre em contato para fazer seu pedido!</p>
-      </div>
+    
+      
+      
       <div class="botoes-contato">
-        <button id="btn-whats-pedido" class="btn-whatsapp">
-            <img src="./imagens/logo whats.png" alt="WhatsApp"> Fazer Pedido
-        </button>
+        
 
         <a href="https://www.instagram.com/doce.essencia__/" target="_blank">
         <button class="btn-instagram">
-          <img src="./imagens/instagram.png" alt="Instagram"> Instagram
+          <img src="./imagens/instagram.png" alt="Instagram"> Acompanhe no Instagram
         </button>
         </a>
       </div>

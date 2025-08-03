@@ -783,6 +783,7 @@ button {
   background-color: var(--verde-whatsapp);
   color: white;
   transition: 0.5s ease-in-out;
+  font-size: 24px;
 }
 
 .btn-whatsapp:hover{
@@ -954,6 +955,18 @@ section.pedidos::before {
     margin-right: auto;
     font-family: 'Poppins', serif;
 }
+ .aviso-encomenda {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background-color: #FDEBD0;
+    color: #B35624;
+    border-left: 6px solid #D35400;
+    font-family: 'Poppins', serif;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-align: center;
+  }
 
 .pedido-container {
     display: flex;
@@ -1369,6 +1382,19 @@ section.pedidos::before {
     margin: 50px auto;
     padding: 0 20px;
     font-family: 'Poppins', sans-serif;
+}
+.frase{
+    max-width: 600px;
+    margin: 30px auto; 
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: #7B4B3A;
+    background-color: #FFF1E6; 
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(123, 75, 58, 0.15);
+    line-height: 1.5;
 }
 
 .titulo-galeria {
