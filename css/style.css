@@ -140,7 +140,7 @@ html,body{
   left: -300px;
   width: 300px;
   height: 100%;
-  background-color: #ffebee;
+  background-color: var(--azul-escuro);
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
   padding: 20px 20px 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -170,7 +170,7 @@ html,body{
 }
 
 .sidebar ul li a {
-  color: #345183;
+  color:var(--rosa-claro);
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -183,8 +183,8 @@ html,body{
 }
 
 .sidebar ul li a:hover {
-  background-color: rgba(52, 81, 131, 0.1);
-  color: #2a4365;
+  color: var(--rosa-escuro);
+  width: 100%;
 }
 
 .sidebar-logo {
@@ -1500,7 +1500,7 @@ section.pedidos::before {
   max-width: 300px;
   left: -100%;
   padding: 25px 15px;
-  background-color: #fff;
+  background-color:var(--azul-escuro);
   box-shadow: 5px 0 15px rgba(0,0,0,0.1);
 }
 
