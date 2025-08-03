@@ -127,15 +127,50 @@ if (next) {
         window.addEventListener('resize', updateCarousel);
         updateCarousel(); // Chama a função para configurar o estado inicial
     });
+  function configurarSelecaoCoresCasquinha() {
+    document.querySelectorAll('.produto').forEach(produto => {
+        const botoesCor = produto.querySelectorAll('.btn-escolha');
+        if (!botoesCor.length) return;
+
+        botoesCor.forEach(botao => {
+            botao.addEventListener('click', function() {
+                // Remove a seleção de todos os botões no mesmo grupo
+                produto.querySelectorAll('.btn-escolha').forEach(b => b.classList.remove('active'));
+                
+                // Adiciona a seleção ao botão clicado
+                this.classList.add('active');
+            });
+        });
+    });
+}
+
 
     // 3. Adicionar produto ao pedido
-    botoesAdicionar.forEach(botao => {
-    botao.addEventListener('click', function () {
+  botoesAdicionar.forEach(botao => {
+    botao.addEventListener('click', function() {
         const produto = this.closest('.produto');
         const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
 
+        // Verifica se tem opção de cor e se foi selecionada
+        const botoesCor = produto.querySelectorAll('.btn-escolha');
+        let corSelecionada = null;
+        
+        if (botoesCor.length > 0) {
+            const btnCorAtivo = produto.querySelector('.btn-escolha.active');
+            if (!btnCorAtivo) {
+                mostrarNotificacao('⚠️ Por favor, selecione a cor da casquinha!');
+                return;
+            }
+            corSelecionada = btnCorAtivo.textContent.trim();
+        }
+
         let nomeCompleto = nomeBase;
         let preco;
+
+        // Adiciona a cor ao nome se existir
+        if (corSelecionada) {
+            nomeCompleto += ` (Casquinha ${corSelecionada})`;
+        }
 
         const temOpcoes = produto.querySelector('.btn-opcao');
 
@@ -477,4 +512,5 @@ overlay.addEventListener('click', () => {
     mostrarSecao('cones'); // Mostra a seção "Cones" por padrão
     atualizarContador();   // Inicia o contador (começará em 0)
     renderizarPedido();
+    configurarSelecaoCoresCasquinha();
 });

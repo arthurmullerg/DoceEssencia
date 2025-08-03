@@ -577,6 +577,30 @@ html,body{
     opacity: 0;
     transition: opacity 0.3s ease;
 }
+.btn-escolha {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 5px 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+}
+.btn-escolha.active {
+    background-color: #ff6b6b;
+    color: white;
+    border-color: #ff5252;
+    font-weight: bold;
+}
+.cores {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555;
+    margin: 8px 0 5px 0;
+    font-weight: bold;
+}
 
 .produto:hover .img-mosaico-single-c::after {
     opacity: 1;
@@ -780,10 +804,16 @@ button {
 }
 
 .btn-whatsapp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--verde-whatsapp);
   color: white;
   transition: 0.5s ease-in-out;
   font-size: 24px;
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .btn-whatsapp:hover{
@@ -811,8 +841,13 @@ button img {
 }
 
 .texto-aviso{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;  
+  max-width: 400px;
   background-color: #FDFD96;
-  padding:10px;
+  padding:25px;
   border-radius: 10px;
   border-left: 6px solid #f4f43b;
   margin-bottom: 10px;
@@ -1518,6 +1553,38 @@ section.pedidos::before {
   .menu-desktop {
       display: none;
   }
+  .produto-queridinho {
+        width: 90%; /* ocupa toda a largura disponível */
+    }
+
+    .produto-queridinho .img-mosaico-single {
+        height: 180px; /* aumenta a imagem */
+    }
+
+    .produto-queridinho .nome,
+    .produto-queridinho .preco {
+        font-size: 1.4em; /* aumenta o texto */
+    }
+
+    .galeria-tortas{
+      margin-top: -250px; /* ajusta a margem superior */
+    }
+
+    .whatsapp-float:hover,
+    .whatsapp-float::after,
+    .btn-instagram:hover,
+    .btn-whatsapp:hover{
+       transform: none;
+        box-shadow: none;
+        
+    }
+    .btn-whatsapp{
+        width: 100%;
+    
+    }
+    .texto-aviso{
+        text-align: justify;
+    }
 }
 
 /* Sidebar Mobile */
@@ -1543,31 +1610,7 @@ section.pedidos::before {
   padding: 10px 15px;
   font-size: 16px;
 }
- .produto-queridinho {
-        width: 90%; /* ocupa toda a largura disponível */
-    }
-
-    .produto-queridinho .img-mosaico-single {
-        height: 180px; /* aumenta a imagem */
-    }
-
-    .produto-queridinho .nome,
-    .produto-queridinho .preco {
-        font-size: 1.4em; /* aumenta o texto */
-    }
-
-    .galeria-tortas{
-      margin-top: -250px; /* ajusta a margem superior */
-    }
-
-    .whatsapp-float:hover,
-    .whatsapp-float::after,
-    .btn-instagram:hover,
-    .btn-whatsapp:hover{
-       transform: none;
-        box-shadow: none;
-        background-color: transparent;
-    }
+ 
 
 @media (max-width: 600px) {
     .grid-tortas {
