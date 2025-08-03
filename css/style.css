@@ -1543,6 +1543,31 @@ section.pedidos::before {
   padding: 10px 15px;
   font-size: 16px;
 }
+ .produto-queridinho {
+        width: 90%; /* ocupa toda a largura disponível */
+    }
+
+    .produto-queridinho .img-mosaico-single {
+        height: 180px; /* aumenta a imagem */
+    }
+
+    .produto-queridinho .nome,
+    .produto-queridinho .preco {
+        font-size: 1.4em; /* aumenta o texto */
+    }
+
+    .galeria-tortas{
+      margin-top: -250px; /* ajusta a margem superior */
+    }
+
+    .whatsapp-float:hover,
+    .whatsapp-float::after,
+    .btn-instagram:hover,
+    .btn-whatsapp:hover{
+       transform: none;
+        box-shadow: none;
+        background-color: transparent;
+    }
 
 @media (max-width: 600px) {
     .grid-tortas {
