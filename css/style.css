@@ -137,11 +137,12 @@ html,body{
 .sidebar {
   position: fixed;
   top: 0;
-  left: -300px;
+  right: -300px; /* Escondido à direita */
+  left: auto; /* Remove a propriedade left */
   width: 300px;
   height: 100%;
   background-color: var(--azul-escuro);
-  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1); /* Sombra invertida */
   padding: 20px 20px 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
@@ -149,8 +150,8 @@ html,body{
 }
 
 .sidebar.active {
-  left: 0;
-  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+  right: 0; /* Mostra vindo da direita */
+  left: auto; /* Remove a propriedade left */
 }
 
 .sidebar ul {
@@ -1507,6 +1508,18 @@ section.pedidos::before {
     font-weight: 500;
     display: block;
 }
+@media (min-width: 902px) {
+  .sidebar {
+    right: auto; /* Remove a posição right */
+    left: -300px; /* Escondido à esquerda */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1); /* Sombra no lado correto */
+  }
+  
+  .sidebar.active {
+    left: 0; /* Mostra vindo da esquerda */
+    right: auto;
+  }
+}
 
 @media (max-width: 900px) {
   .header{
@@ -1533,10 +1546,24 @@ section.pedidos::before {
       flex-direction: row;
       justify-content: flex-start;
       padding: 15px 20px;
+  } 
+  .sidebar {
+    width: 85%;
+    max-width: 300px;
+    right: -100%; /* Escondido à direita */
+    left: auto;
+    padding: 25px 15px;
+    background-color: var(--azul-escuro);
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1); /* Sombra invertida */
+  }
+  
+  .sidebar.active {
+    right: 0; /* Mostra vindo da direita */
+    left: auto;
   }
 
   .logo {
-      order: 2;
+      order: 1;
       margin-left: auto;
       margin-right: auto;
       font-size: 36px;
@@ -1591,30 +1618,8 @@ section.pedidos::before {
     }
 }
 
-/* Sidebar Mobile */
-.sidebar {
-  width: 85%;
-  max-width: 300px;
-  left: -100%;
-  padding: 25px 15px;
-  background-color:var(--azul-escuro);
-  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
-}
 
-.sidebar-logo {
-  width: 100px;
-  margin: 0 auto 20px;
-}
 
-.sidebar ul li {
-  margin: 15px 0;
-}
-
-.sidebar ul li a {
-  padding: 10px 15px;
-  font-size: 16px;
-}
- 
 
 @media (max-width: 600px) {
     .grid-tortas {
