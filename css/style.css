@@ -517,6 +517,7 @@ html,body{
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     padding: 20px;
+    height: 500px;
     width: 280px;
     flex: 0 0 280px;
     text-align: center;
@@ -1552,6 +1553,9 @@ section.pedidos::before {
   
   .menu-desktop {
       display: none;
+  }
+  .produto:last-child{
+    height: 550px;
   }
   .produto-queridinho {
         width: 90%; /* ocupa toda a largura disponível */
