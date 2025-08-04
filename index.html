@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/banner.css">
+    <script src="./banner.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="./imagens/icone-site.png">
     <title>Doce Essência | Doces Artesanais em Montenegro</title>
     <meta name="description" content="A Doce Essência é uma confeitaria artesanal em Montenegro - RS. Oferecemos doces artesanais, cones gourmet, bolos de pote e tortas. Encomende agora!">
@@ -65,22 +67,66 @@
 <div class="overlay" id="overlay"></div>
     </header>
 
-    <section class="mosaico">
-        <div class="container">
-            <div class="mosaico-wraper">
-                <div class="mosaico-single">
-                    <div class="img-mosaico-single" style="background-image: url(./imagens/torta-principal.jpeg);"></div>
-                    <div class="img-mosaico-single" style="background-image: url(./imagens/brigadeiros.jpeg);"></div>
+   <div class="banner-fullscreen">
+        <div class="banner-slides">
+            <!-- Slide 1 - Torta Gourmet -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Torta redonda morango e nata</h2>
+                    <p class="slide-desc">Nossa criação premiada combina texturas crocantes e cremosas com frutas frescas da estação.</p>
+                    <a href="#cardapio" class="slide-btn">Experimente</a>
                 </div>
-
-                <div class="mosaico-single">
-                    <div class="img-mosaico-single" style="background-image: url(./imagens/torta\ de\ morango\ com\ laço.jpeg);"></div>
-                    <div class="img-mosaico-single" style="background-image: url(./imagens/brownie-principal.jpg);"></div>
+                <div class="slide-image">
+                    <img src="./imagens/torta-principal.jpeg" alt="Torta Gourmet">
                 </div>
+            </div>
+            
+            <!-- Slide 2 - Cone de Chocolate -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Cone De Ouro Branco</h2>
+                    <p class="slide-desc">Crocância perfeita combinada com chocolate derretido e morangos caramelizados.</p>
+                    <a href="#cones" class="slide-btn">Peça Agora</a>
+                </div>
+                <div class="slide-image">
+                    <img src="./imagens/cone-principal.jpg" alt="Cone de Chocolate">
+                </div>
+            </div>
+            
+            <!-- Slide 3 - Brownie Premium -->
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Brownie No Pote</h2>
+                    <p class="slide-desc">Nosso best-seller: denso, úmido e com pedaços de chocolate derretido.</p>
+                    <a href="#cardapio" class="slide-btn">Degustar</a>
+                </div>
+                <div class="slide-image">
+                    <img src="./imagens/brownie-banner.jpg" alt="Brownie Premium">
+                </div>
+            </div>
 
+            <div class="slide">
+                <div class="slide-content">
+                    <h2 class="slide-title">Torta Comemorativa</h2>
+                    <p class="slide-desc">Nosso best-seller: denso, úmido e com pedaços de chocolate derretido.</p>
+                    <a href="#cardapio" class="slide-btn">Degustar</a>
+                </div>
+                <div class="slide-image">
+                    <img src="./imagens/torta-banner.jpg" alt="Torta">
+                </div>
             </div>
         </div>
-    </section>
+        
+        <button class="nav-btn" id="prevBtn">&#10094;</button>
+        <button class="nav-btn" id="nextBtn">&#10095;</button>
+        
+        <div class="circular-nav">
+            <span class="nav-dot active"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+        </div>
+    </div>
 
     <section class="servicos" id="servicos">
         <div class="container">

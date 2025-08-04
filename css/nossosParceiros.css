@@ -1,3 +1,25 @@
+:root {
+    /* Cores principais */
+    --azul-principal: #26678A;
+    --azul-escuro: #1d4f6b;
+    --azul-claro: #6b8a9e;
+    
+    --rosa-principal: #F49FB6;
+    --rosa-escuro: #e55a78;
+    --rosa-claro: #FAD4D8;
+    --rosa-pastel: #FBE4E6;
+    
+    /* Cores secundárias */
+    --verde-whatsapp: #25D366;
+    --verde-whatsapp-escuro: #128C7E;
+    --rosa-instagram: #E0BFD3;
+    
+    /* Cores de texto */
+    --texto-escuro: #2B2B2B;
+    --texto-cinza: #5E5E5E;
+    --texto-claro: #ffffff;
+}
+
 *{
     padding: 0;
     margin: 0;
@@ -11,21 +33,22 @@
 
 ::-webkit-scrollbar-track {
   background: #e0e0e0;
-  
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #26678A;
+  background-color: var(--azul-principal);
   border-radius: 6px;
   border: 2px solid #e0e0e0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #1d4f6b;
+  background-color: var(--azul-escuro);
 }
+
 html,body{
    height: 100%;   
 }
+
 @font-face {
     font-family: 'tan-pearl';
     src: url('./tan-pearl.otf') format('opentype');
@@ -36,7 +59,6 @@ html,body{
 .clear{
   clear: both
 }
-
 
 .header {
     background-color: #fff;
@@ -58,7 +80,7 @@ html,body{
 
 .logo {
     font-family: 'tan-pearl', serif;
-    color: #26678A;
+    color: var(--azul-principal);
     font-size: 48px;
     margin: 0;
     order: 2;
@@ -70,8 +92,8 @@ html,body{
     font-size: 30px;
     cursor: pointer;
     color: #3a6298;
-     order: 3;
-      margin-left: -45px;
+    order: 3;
+    margin-left: -45px;
 }
 
 .menu-desktop ul {
@@ -83,7 +105,7 @@ html,body{
 }
 
 .menu-desktop li a {
-    color: #26678A;
+    color: var(--azul-principal);
     font-weight: bold;
     font-size: 18px;
     position: relative;
@@ -98,7 +120,7 @@ html,body{
     bottom: -5px;
     width: 0;
     height: 2px;
-    background-color: #F49FB6;
+    background-color: var(--rosa-principal);
     transition: width 0.3s;
 }
 
@@ -109,19 +131,19 @@ html,body{
 
 .menu-desktop li a:hover,
 .menu-desktop li a.active {
-    color: #F49FB6;
+    color: var(--rosa-principal);
 }
 
 .sidebar {
   position: fixed;
   top: 0;
-  left: -300px; /* Aumentei um pouco para dar mais espaço */
+  left: -300px;
   width: 300px;
   height: 100%;
-  background-color: #ffebee;
+  background-color: var(--azul-escuro) !important;
   box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
- padding: 20px 20px 20px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transição mais suave */
+  padding: 20px 20px 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1001;
   overflow-y: auto;
 }
@@ -141,7 +163,6 @@ html,body{
 .sidebar ul li {
   margin: 25px 0;
   transition: transform 0.3s ease;
-  
 }
 
 .sidebar ul li:hover {
@@ -149,7 +170,7 @@ html,body{
 }
 
 .sidebar ul li a {
-  color: #345183;
+  color:var(--rosa-claro);
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -162,19 +183,18 @@ html,body{
 }
 
 .sidebar ul li a:hover {
-  background-color: rgba(52, 81, 131, 0.1);
-  color: #2a4365;
+  color: var(--rosa-escuro);
+  width: 100%;
 }
 
 .sidebar-logo {
-  width: 120px; /* Tamanho reduzido */
+  width: 120px;
   height: auto;
   margin: 0 auto 15px;
   display: block;
   transition: transform 0.3s ease;
 }
 
-/* Overlay escuro ao fundo */
 .overlay {
   position: fixed;
   top: 0;
@@ -193,7 +213,6 @@ html,body{
   pointer-events: auto;
 }
 
-/* Ícone do menu no canto */
 .menu-toggle {
   cursor: pointer;
   z-index: 1100;
@@ -203,6 +222,7 @@ html,body{
 .menu-toggle:hover {
   transform: scale(1.1);
 }
+
 .menu-toggle {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -212,6 +232,8 @@ html,body{
   pointer-events: none;
   transform: translateX(-20px);
 }
+
+
 
 /*Onde Nos Encontrar*/
 .onde-encontrar {
