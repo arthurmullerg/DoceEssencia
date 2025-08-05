@@ -233,7 +233,314 @@ html,body{
   pointer-events: none;
   transform: translateX(-20px);
 }
+  .hero-section {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            background: url('')center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 0px;
+        }
 
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(244, 159, 182, 0.3) 0%, rgba(193, 233, 255, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .handwritten {
+            font-family: 'Dancing Script', cursive;
+            display: block;
+            font-size: 2.2rem;
+            margin-top: 10px;
+            color: var(--rosa-claro);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 60px 0;
+            background-color: var(--rosa-pastel);
+            text-align: center;
+            font-family: 'Poppins';
+        }
+
+        .benefits-section h2 {
+            color: var(--azul-escuro);
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--rosa-principal);
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: var(--texto-cinza);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: white;
+        }
+
+        .testimonials-section h2 {
+            color: var(--azul-escuro);
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-family: 'Poppins';
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--rosa-pastel);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--texto-cinza);
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            margin-top: auto;
+        }
+
+        .testimonial-author strong {
+            display: block;
+            color: var(--azul-escuro);
+            font-size: 1.1rem;
+            font-family: 'Poppins';
+        }
+
+        .testimonial-author span {
+            color: var(--azul-claro);
+            font-size: 0.9rem;
+             font-family: 'Poppins';
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--rosa-principal) 0%, var(--azul-principal) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--rosa-principal);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(244, 159, 182, 0.2);
+        }
+      .form-group textarea {
+    width: 100%;
+    padding: 15px 20px; /* Padronizado com os inputs */
+    border: 2px solid #eee; /* Mesmo estilo inicial dos inputs */
+    border-radius: 10px; /* Igual aos inputs */
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    color: #333;
+    resize: vertical;
+    min-height: 120px;
+    outline: none;
+}
+/* Efeito ao focar (melhor acessibilidade) */
+form textarea:focus {
+    border-color: var(--rosa-principal);
+    box-shadow: 
+        0 0 0 4px rgba(244, 159, 182, 0.3), /* Sombra mais intensa no focus */
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder estilizado */
+form textarea::placeholder {
+    font-family: 'Poppins';/* Cor suave para o placeholder */
+    opacity: 1; /* Garante visibilidade em todos os navegadores */
+}
+
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--rosa-principal);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-decoration: none;
+            margin-top: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--rosa-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .handwritten {
+                font-size: 1.8rem;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .handwritten {
+                font-size: 1.5rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
 
 @media (min-width: 902px) {
   .sidebar {

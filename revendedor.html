@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="./css/nossosParceiros.css">
+    <link rel="stylesheet" href="./css/revendedor.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="./imagens/icone-site.png">
@@ -64,4 +64,120 @@
 <!-- Overlay para fechar o menu ao clicar fora -->
 <div class="overlay" id="overlay"></div>
     </header>
+     <section class="hero-section">
+            <div class="hero-content">
+                <h1>Seja um revendedor Doce Essência <span class="handwritten">e adoce a vida de quem está ao seu redor!</span></h1>
+                <p>Transforme seu tempo livre em renda extra com doces artesanais de alta qualidade</p>
+                <a href="#form-revendedor" class="cta-button">Quero revender agora!</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <h2>Por que ser um revendedor?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Ganhos extras</h3>
+                    <p>Venda quando quiser e aumente sua renda</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horários flexíveis</h3>
+                    <p>Trabalhe no seu tempo livre</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Produtos irresistíveis</h3>
+                    <p>Doces premium que encantam clientes</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Apoio constante</h3>
+                    <p>Suporte da nossa equipe especializada</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-gift"></i>
+                    <h3>Kit de início</h3>
+                    <p>Receba doces e materiais de apoio</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Venda onde quiser</h3>
+                    <p>Faculdade, trabalho ou redes sociais</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section testemunha -->
+        <section class="testimonials-section">
+            <h2>Nossos revendedores dizem</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="./imagens/Arthur.jpeg" alt="Arthur">
+                    <div class="testimonial-content">
+                        <p>"Com Doce Essência, pago minha faculdade e ainda presenteio meus amigos!"</p>
+                        <div class="testimonial-author">
+                            <strong>Arthur</strong>
+                            <span>Estudante na PUC</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="" alt="Carlos">
+                    <div class="testimonial-content">
+                        <p>"Meus clientes amam os doces! Vendo até mais que roupas às vezes."</p>
+                        <div class="testimonial-author">
+                            <strong>Carlos</strong>
+                            <span>Vendedor em loja de roupas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <img src="" alt="Juliana">
+                    <div class="testimonial-content">
+                        <p>"O melhor é poder conciliar com meu trabalho fixo. A renda extra faz diferença!"</p>
+                        <div class="testimonial-author">
+                            <strong>Juliana</strong>
+                            <span>Assistente administrativa</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" id="form-revendedor">
+            <div class="cta-container">
+                <h2>Pronto para começar?</h2>
+                <p>Preencha o formulário e entraremos em contato em até 24 horas</p>
+                
+        <form class="cta-form" action="https://formsubmit.com/arthurmullerg@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://seusite.com/obrigado.html"> <!-- Redirecionamento-->
+    
+            <div class="input-group">
+                <div class="form-group">
+                    <input type="text" name="Nome" placeholder="Nome Inteiro" required>
+                </div>
+                 <div class="form-group">
+                    <input type="email" name="Email" placeholder="Email" required>
+                </div>
+                 <div class="form-group">
+                    <input type="tel" name="Numero" placeholder="Número" required>
+                </div>
+            </div>
+            
+               <div class="form-group">
+    <textarea name="message" cols="30" rows="10" placeholder="Sua Mensagem" required></textarea>
+</div>
+             <div class="form-group">   
+                <input type="submit" value="Enviar Mensagem" class="btn">
+            </div>
+        </form>
+            </div>
+        </section>
     <script src="script.js"></script>
+    </body>
+</html>
