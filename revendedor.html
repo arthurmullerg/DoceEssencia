@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <link rel="stylesheet" href="./css/revendedor.css">
+    <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css" integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="icon" type="image/x-icon" href="./imagens/icone-site.png">
@@ -153,24 +156,19 @@
                 <h2>Pronto para começar?</h2>
                 <p>Preencha o formulário e entraremos em contato em até 24 horas</p>
                 
-        <form class="cta-form" action="https://formsubmit.com/arthurmullerg@gmail.com" method="POST">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://seusite.com/obrigado.html"> <!-- Redirecionamento-->
+        <form class="cta-form" method="POST" id="form-cont">
     
             <div class="input-group">
                 <div class="form-group">
-                    <input type="text" name="Nome" placeholder="Nome Inteiro" required>
+                    <input type="text" id="name" name="name" placeholder="Nome Inteiro" required>
                 </div>
                  <div class="form-group">
-                    <input type="email" name="Email" placeholder="Email" required>
-                </div>
-                 <div class="form-group">
-                    <input type="tel" name="Numero" placeholder="Número" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                 </div>
             </div>
             
                <div class="form-group">
-    <textarea name="message" cols="30" rows="10" placeholder="Sua Mensagem" required></textarea>
+    <textarea id="subject" name="subject" cols="30" rows="10" placeholder="Sua Mensagem" required></textarea>
 </div>
              <div class="form-group">   
                 <input type="submit" value="Enviar Mensagem" class="btn">
@@ -178,6 +176,8 @@
         </form>
             </div>
         </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js" integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="email.js"></script>
     <script src="script.js"></script>
     </body>
 </html>
