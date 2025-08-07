@@ -11,7 +11,7 @@ document.getElementById('form-cont').addEventListener('submit', function(event) 
         subject: document.getElementById('subject').value
     };
      
-    const seviceID = "service_zjm3eos";
+    const serviceID = "service_zjm3eos";
     const templateID = "template_h9cqdy6";
 
     emailjs.send(serviceID, templateID, formData)
