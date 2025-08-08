@@ -67,17 +67,19 @@
 <div class="overlay" id="overlay"></div>
     </header>
 
-   <div class="banner-fullscreen">
-        <div class="banner-slides">
+ <div class="banner-fullscreen">
+        <div class="banner-slides" id="bannerSlides">
             <!-- Slide 1 - Torta Gourmet -->
             <div class="slide">
                 <div class="slide-content">
-                    <h2 class="slide-title">Torta redonda morango e nata</h2>
-                    <p class="slide-desc">Nossa criação premiada combina texturas crocantes e cremosas com frutas frescas da estação.</p>
+                    <h2 class="slide-title">Torta de morango e nata</h2>
+                    <p class="slide-desc">Nossa criação premiada combina texturas crocantes e cremosas com frutas da estação.</p>
+                </div>
+                <div class="slide-btn-container">
                     <a href="#cardapio" class="slide-btn">Experimente</a>
                 </div>
                 <div class="slide-image">
-                    <img src="./imagens/torta-principal.jpeg" alt="Torta Gourmet">
+                    <img src="./imagens/torta-principal.jpeg"alt="Torta Gourmet">
                 </div>
             </div>
             
@@ -86,6 +88,8 @@
                 <div class="slide-content">
                     <h2 class="slide-title">Cone De Ouro Branco</h2>
                     <p class="slide-desc">Crocância perfeita combinada com chocolate derretido e morangos caramelizados.</p>
+                </div>
+                <div class="slide-btn-container">
                     <a href="#cones" class="slide-btn">Peça Agora</a>
                 </div>
                 <div class="slide-image">
@@ -98,6 +102,8 @@
                 <div class="slide-content">
                     <h2 class="slide-title">Brownie No Pote</h2>
                     <p class="slide-desc">Nosso best-seller: denso, úmido e com pedaços de chocolate derretido.</p>
+                </div>
+                <div class="slide-btn-container">
                     <a href="#cardapio" class="slide-btn">Degustar</a>
                 </div>
                 <div class="slide-image">
@@ -105,26 +111,30 @@
                 </div>
             </div>
 
+            <!-- Slide 4 - Torta Comemorativa -->
             <div class="slide">
                 <div class="slide-content">
                     <h2 class="slide-title">Torta Comemorativa</h2>
-                    <p class="slide-desc">Nosso best-seller: denso, úmido e com pedaços de chocolate derretido.</p>
-                    <a href="#cardapio" class="slide-btn">Degustar</a>
+                    <p class="slide-desc">Perfeita para momentos especiais, com sabores únicos e decoração personalizada.</p>
+                </div>
+                <div class="slide-btn-container">
+                    <a href="#cardapio" class="slide-btn">Encomendar</a>
                 </div>
                 <div class="slide-image">
-                    <img src="./imagens/torta-banner.jpg" alt="Torta">
+                    <img src="./imagens/torta-banner.jpg" alt="Torta Comemorativa">
                 </div>
             </div>
         </div>
         
+        <!-- Controles de navegação -->
         <button class="nav-btn" id="prevBtn">&#10094;</button>
         <button class="nav-btn" id="nextBtn">&#10095;</button>
         
-        <div class="circular-nav">
-            <span class="nav-dot active"></span>
-            <span class="nav-dot"></span>
-            <span class="nav-dot"></span>
-            <span class="nav-dot"></span>
+        <div class="circular-nav" id="circularNav">
+            <span class="nav-dot active" data-slide="0"></span>
+            <span class="nav-dot" data-slide="1"></span>
+            <span class="nav-dot" data-slide="2"></span>
+            <span class="nav-dot" data-slide="3"></span>
         </div>
     </div>
 
