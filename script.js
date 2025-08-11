@@ -73,13 +73,17 @@ document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
     // --- INICIALIZAÇÃO DOS EVENTOS ---
 
     // 1. Navegação do Cardápio
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const id = this.getAttribute('href').substring(1);
-            mostrarSecao(id);
-        });
+  menuLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const id = this.getAttribute('href').substring(1);
+        mostrarSecao(id);
+
+        if (id === 'tortas') {
+            inicializarTortas();
+        }
     });
+});
 
     // 2. Lógica do Carrossel de Produtos
     carousels.forEach(carousel => {
@@ -498,7 +502,37 @@ function atualizarTotalPedido() {
         totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
     }
 }
+function inicializarTortas() {
+    // Seleciona as subseções
+    const secaoRedonda = document.getElementById('Redonda');
+    const secaoRetangular = document.getElementById('retangular');
 
+    // Ativa a seção Redonda, desativa a Retangular
+    if (secaoRedonda && secaoRetangular) {
+        secaoRedonda.classList.add('ativo');
+        secaoRetangular.classList.remove('ativo');
+    }
+
+    // Remove seleção de todos os botões de torta (redonda e retangular)
+    document.querySelectorAll('.btn-opcao-redonda, .btn-opcao-retangular').forEach(btn => {
+        btn.removeAttribute('data-selecionado');
+    });
+
+    // Seleciona o primeiro botão redondo e simula clique pra ativar tudo
+    const primeiroBtnRedondo = document.querySelector('.btn-opcao-redonda');
+    if (primeiroBtnRedondo) {
+        primeiroBtnRedondo.setAttribute('data-selecionado', 'true');
+        
+    }
+
+    // Atualiza os links de formato (menu-formato) para indicar que Redonda está ativo
+    document.querySelectorAll('.menu-link-formato').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#Redonda') {
+            link.classList.add('active');
+        }
+    });
+}
 
     // 5. Menu mobile
  const toggle = document.getElementById('menu-toggle');
