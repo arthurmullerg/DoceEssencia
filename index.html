@@ -665,14 +665,39 @@
                         <span class="total-valor" id="total-valor">R$ 0,00</span>
                     </div>
                     </div> 
-                    <button id="btn-whats-pedido" class="btn-whatsapp">
+                    
+               <div class="btn-bairro">
+                    <label for="selectAeroclube">Seu Bairro:</label>
+                        <select id="selectAeroclube" name="bairro">
+                        <option value="" disabled selected>Selecione seu bairro</option>
+                        <option value="aeroclube">Aeroclube</option>
+                        <option value="bela-vista">Bela Vista</option>
+                        <option value="centenario">Centenário</option>
+                        <option value="centro">Centro</option>
+                        <option value="cinco-de-maio">Cinco de Maio</option>
+                        <option value="ferroviario">Ferroviário</option>
+                        <option value="germano-henke">Germano Henke</option>
+                        <option value="imigracao">Imigração</option>
+                        <option value="industrial">Industrial</option>
+                        <option value="panorama">Panorama</option>
+                        <option value="por-do-sol">Por do Sol</option>
+                        <option value="progresso">Progresso</option>
+                        <option value="rui-barbosa">Rui Barbosa</option>
+                        <option value="sao-joao">São João</option>
+                        <option value="sao-paulo">São Paulo</option>
+                        <option value="santa-rita">Santa Rita</option>
+                        <option value="santo-antonio">Santo Antônio</option>
+                        <option value="senai">Senai</option>
+                        <option value="timbauva">Timbauva</option>
+                        <option value="zona-rural">Zona Rural</option>
+                        </select>
+                       <div id="frete-resultado"></div>
+                </div>
+
+                <button id="btn-whats-pedido" class="btn-whatsapp">
           <i class="fa-brands fa-whatsapp fa-lg" style="color: #ffffff;"></i>Fazer Pedido
                 </button> 
-        <div class="texto-aviso"> 
-        <p>⚠️Importante: Trabalhamos apenas com encomendas. Não possuímos loja física e não vendemos pelo site. 
-            Entre em contato para fazer seu pedido!</p>
-      </div>
-                </div>
+               
             </div>
         </section>
 
@@ -713,7 +738,6 @@
         <i class="fas fa-check-circle"></i>
         <span id="notificacao-texto">Produto adicionado!</span>
     </div>
-
 
     <script src="script.js"></script>
 

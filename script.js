@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnEnviarWhats = document.getElementById('btn-whats-pedido');
     const menuToggle = document.querySelector('.menu-mobile');
     const menuMobile = document.querySelector('.menu-mobile ul');
+    const selectBairro = document.getElementById("selectAeroclube");
 
     // --- FUNÇÕES ---
     configurarMenuBrownie();
@@ -419,9 +420,19 @@ function configurarBrownies() {
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
     if (btnEnviarWhats) {
-        btnEnviarWhats.addEventListener('click', () => {
-        
- let mensagem ='Olá! Gostaria de fazer';
+    btnEnviarWhats.addEventListener('click', () => {
+
+        const selectBairro = document.getElementById("selectAeroclube");
+        const bairroSelecionado = selectBairro ? selectBairro.value : null;
+
+        if (!bairroSelecionado) {
+            alert('Por favor, selecione seu bairro para calcular o frete.');
+            return;
+        }
+
+        const frete = precoFrete[bairroSelecionado] || 0;
+
+        let mensagem = 'Olá! Gostaria de fazer';
 
         if (pedido.length > 0) {
             mensagem += ' o seguinte pedido:\n\n';
@@ -430,8 +441,11 @@ function configurarBrownies() {
                 mensagem += `- ${item.nome}: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
             });
 
-            const total = pedido.reduce((sum, item) => sum + item.preco, 0);
-            mensagem += `\n*Total: R$ ${total.toFixed(2).replace('.', ',')}*`;
+            const totalProdutos = pedido.reduce((sum, item) => sum + item.preco, 0);
+            const totalComFrete = totalProdutos + frete;
+
+            mensagem += `\nFrete para o bairro:${bairroSelecionado.replace(/-/g, ' ')}: R$ ${frete.toFixed(2).replace('.', ',')}`;
+            mensagem += `\n*Total (produtos + frete): R$ ${totalComFrete.toFixed(2).replace('.', ',')}*`;
         } else {
             mensagem += ' um pedido.';
         }
@@ -514,3 +528,42 @@ overlay.addEventListener('click', () => {
     renderizarPedido();
     configurarSelecaoCoresCasquinha();
 });
+
+// Mapeamento dos bairros para o preço do frete
+const precoFrete = {
+  "aeroclube": 10.00,
+  "bela-vista": 15.00,
+  "centenario": 12.00,
+  "centro": 8.00,
+  "cinco-de-maio": 14.00,
+  "ferroviario": 13.00,
+  "germano-henke": 16.00,
+  "imigracao": 15.00,
+  "industrial": 18.00,
+  "panorama": 20.00,
+  "por-do-sol": 22.00,
+  "progresso": 14.00,
+  "rui-barbosa": 12.00,
+  "sao-joao": 10.00,
+  "sao-paulo": 17.00,
+  "santa-rita": 13.00,
+  "santo-antonio": 11.00,
+  "senai": 9.00,
+  "timbauva": 19.00,
+  "zona-rural": 25.00
+};
+
+const selectBairro = document.getElementById("selectAeroclube");
+const resultadoFrete = document.getElementById("frete-resultado");
+
+selectBairro.addEventListener("change", function() {
+  const bairroSelecionado = this.value;
+  
+  if (bairroSelecionado && precoFrete[bairroSelecionado] !== undefined) {
+    const preco = precoFrete[bairroSelecionado].toFixed(2);
+    resultadoFrete.textContent = `Preço do frete para ${bairroSelecionado.replace(/-/g, ' ')}: R$ ${preco}`;
+  } else {
+    resultadoFrete.textContent = "";
+  }
+});
+
