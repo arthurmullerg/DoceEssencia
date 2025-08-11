@@ -302,8 +302,8 @@
             }
             
             .slide-image img {
-                max-height: 40vh;
-                max-width: 95%;
+                max-height: 50vh;
+                max-width: 100%;
                 border-width: 6px;
             }
             
