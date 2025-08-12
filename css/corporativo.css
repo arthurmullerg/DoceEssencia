@@ -246,10 +246,219 @@ html,body{
     right: auto;
   }
 }
+  
+.filtros-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 2%;
+}
 
+.filtros-label {
+    font-weight: 600;
+    color: var(--azul-escuro);
+    font-size: 16px;
+    font-family: 'Poppins';
+}
+
+.filtros-btn {
+    background-color: var(--rosa-pastel);
+    border: 1px solid var(--rosa-claro);
+    border-radius: 20px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--azul-escuro);
+    font-size: 15px;
+}
+
+.filtros-btn:hover {
+    background-color: var(--rosa-principal);
+    color: white;
+    border-color: var(--rosa-escuro);
+}
+
+/* Dropdown de Filtros */
+.filtros-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid var(--rosa-claro);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    z-index: 100;
+    display: none;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.filtros-container.active .filtros-dropdown {
+    display: block;
+}
+
+.filtros-option {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-family: 'Poppins';
+}
+
+.filtros-option:hover {
+    background-color: var(--rosa-pastel);
+    color: var(--azul-escuro);
+    padding-left: 25px;
+}
+
+.filtros-option[data-filtro="todos"] {
+    font-weight: 600;
+    background-color: var(--rosa-claro);
+    color: var(--azul-escuro);
+    font-family: 'Poppins';
+}
+
+/* Seção de Produtos - Estilo Atualizado */
+.produtos-corporativos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 20px 2%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produto {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.produto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.produto:hover img {
+    transform: scale(1.03);
+}
+
+.produto p {
+    padding: 15px 15px 8px;
+    font-size: 15px;
+    color: var(--texto-escuro);
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: 'Poppins';
+}
+
+.produto span {
+    display: block;
+    padding: 0 15px 15px;
+    font-weight: 700;
+    color: var(--azul-principal);
+    font-size: 17px;
+    font-family: 'Poppins';
+}
+
+.intro-corporativa {
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-escuro) 100%);
+    color: white;
+    padding: 60px 2%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.intro-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.intro-corporativa h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Poppins';
+}
+
+.intro-corporativa h1 span {
+    color: var(--rosa-principal);
+    display: block;
+    font-family: 'Poppins';
+}
+
+.intro-corporativa p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    font-family: 'Poppins';
+}
+
+.detalhe-rosa {
+    width: 100px;
+    height: 4px;
+    background: var(--rosa-principal);
+    margin: 25px auto;
+    border-radius: 2px;
+}
+
+/* Efeitos decorativos */
+.intro-corporativa::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--rosa-claro);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.intro-corporativa::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    background: var(--rosa-pastel);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Responsividade */
 @media (max-width: 900px) {
-  .header{
-    position: fixed;
+.header{
+    
     top: 0;
     width: 100%;
   }
@@ -263,9 +472,8 @@ html,body{
   }
   
   .produto {
-      width: calc(50% - 20px);
-      margin: 0px 10px;
-      left: 15px;
+      width: 100%;
+      margin: 0px;
   }
   
   .header-container {
@@ -307,4 +515,105 @@ html,body{
   .menu-desktop {
       display: none;
   }
+   .produtos-corporativos {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+        padding: 20px 4%;
+    }
+    
+    .filtros-container {
+        padding: 0 4%;
+        margin: 25px 0 15px;
+    }
+    
+    .produto img {
+        height: 170px;
+    }
+    
+    .produto p {
+        font-size: 14px;
+        padding: 12px 12px 6px;
+    }
+    
+    .produto span {
+        font-size: 16px;
+
+    }
+    .intro-corporativa {
+        padding: 50px 4%;
+    }
+    
+    .intro-corporativa h1 {
+        font-size: 2.2rem;
+    }
+    
+    .intro-corporativa p {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    .produtos-corporativos {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+    
+    .filtros-btn {
+        padding: 7px 15px;
+        font-size: 14px;
+    }
+    
+    .filtros-label {
+        font-size: 15px;
+    }
+    
+    .produto img {
+        height: 150px;
+    }
+    
+    .produto::after {
+        font-size: 10px;
+        padding: 2px 8px;
+    }
+    .intro-corporativa h1 {
+        font-size: 1.8rem;
+    }
+    
+    .intro-corporativa p {
+        font-size: 1rem;
+    }
+    
+    .detalhe-rosa {
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .filtros-container {
+        justify-content: center;
+    }
+    
+    .produtos-corporativos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Efeitos de Filtro (para usar com JavaScript) */
+.produto.hidden {
+    display: none;
+    animation: fadeOut 0.3s ease;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.95); }
+}
+
+.filtro-ativo {
+    background-color: var(--rosa-principal) !important;
+    color: white !important;
+    border-color: var(--rosa-escuro) !important;
 }
