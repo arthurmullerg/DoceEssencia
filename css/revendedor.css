@@ -508,6 +508,65 @@ form textarea::placeholder {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
+.footer-corporativo {
+    background-color: var(--rosa-claro);
+    color: white;
+    padding: 60px 0 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-family: 'Poppins', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--azul-escuro);
+}
+
+.footer-col p {
+    color: var(--azul-principal);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+}
+
+.footer-social a {
+    color: var(--azul-escuro);
+    font-size: 1.5rem;
+    transition: all 0.8s;
+   
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--azul-escuro);
+    font-size: 0.9rem;
+    
+}
+
+/* Ícones de contato */
+.footer-col i {
+    margin-right: 10px;
+    color: var(--dourado);
+    width: 30px;
+    text-align: center;
+}
+
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {

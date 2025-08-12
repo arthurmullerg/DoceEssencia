@@ -747,51 +747,6 @@ html,body{
 .cardapio.ativo {
   display: block;
 }
-
-/*contato*/
-.contato {
-  background-color: #F5F5F5;
-  padding: 80px 60px;
-  display: flex;
-  justify-content: center;
-}
-
-.conteudo-contato {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 800px;
-  width: 100%;
-}
-
-.texto-botoes {
-  flex: 1;
-  min-width: 260px;
-  margin-left: 120px;
-}
-
-.contato h2 {
-  font-size: 1.8rem;
-  color: var(--azul-principal);
-  font-family: 'Poppins', serif;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.contato p {
-  color: var(--rosa-principal);
-  font-family: 'Poppins', serif;
-  margin-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-.botoes-contato {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
 button {
   display: flex;
   align-items: center;
@@ -835,11 +790,6 @@ button {
 button img {
   width: 20px;
   height: 20px;
-}
-
-.img-contato img {
-  margin-right: 180px;
-  width: 100px;
 }
 
 .texto-aviso{
@@ -1545,6 +1495,66 @@ section.pedidos::before {
     font-weight: 500;
     display: block;
 }
+.footer-corporativo {
+    background-color: var(--rosa-claro);
+    color: white;
+    padding: 60px 0 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-family: 'Poppins', serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--azul-escuro);
+}
+
+.footer-col p {
+    color: var(--azul-principal);
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+}
+
+.footer-social a {
+    color: var(--azul-escuro);
+    font-size: 1.5rem;
+    transition: all 0.8s;
+   
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--azul-escuro);
+    font-size: 0.9rem;
+    
+}
+
+/* Ícones de contato */
+.footer-col i {
+    margin-right: 10px;
+    color: var(--dourado);
+    width: 30px;
+    text-align: center;
+}
+
+
 @media (min-width: 902px) {
   .sidebar {
     right: auto; /* Remove a posição right */
@@ -1679,10 +1689,6 @@ section.pedidos::before {
       display: none;
     }
     
-    .img-contato{
-      display: none;
-    }
-    
     footer{
       font-size: 8px;
     }
@@ -1713,28 +1719,6 @@ section.pedidos::before {
         font-size: 1.5rem;
         width: 30px;
         height: 30px;
-    }
-    
-    .conteudo-contato {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .texto-botoes {
-        margin-left: 0;
-        padding: 0 20px;
-    }
-    
-    .contato h2 {
-        font-size: 1.5rem;
-    }
-    
-    .contato p {
-        font-size: 0.9rem;
-    }
-    
-    .botoes-contato {
-        gap: 15px;
     }
     
     button {
@@ -1834,28 +1818,6 @@ section.pedidos::before {
         width: 160px;
         flex: 0 0 232px;
         padding: 12px;
-    }
-    
-    .contato {
-        padding: 30px 15px;
-    }
-    
-    .img-contato{
-        display: none;
-    }
-    
-    .contato h2 {
-        font-size: 1.3rem;
-    }
-    
-    .contato p {
-        font-size: 0.85rem;
-    }
-    
-    .botoes-contato {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
     }
     
     button {
