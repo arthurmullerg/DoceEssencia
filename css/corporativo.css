@@ -246,87 +246,6 @@ html,body{
     right: auto;
   }
 }
-  
-.filtros-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin: 30px 0;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 0 2%;
-}
-
-.filtros-label {
-    font-weight: 600;
-    color: var(--azul-escuro);
-    font-size: 16px;
-    font-family: 'Poppins';
-}
-
-.filtros-btn {
-    background-color: var(--rosa-pastel);
-    border: 1px solid var(--rosa-claro);
-    border-radius: 20px;
-    padding: 8px 20px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--azul-escuro);
-    font-size: 15px;
-}
-
-.filtros-btn:hover {
-    background-color: var(--rosa-principal);
-    color: white;
-    border-color: var(--rosa-escuro);
-}
-
-/* Dropdown de Filtros */
-.filtros-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid var(--rosa-claro);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 200px;
-    z-index: 100;
-    display: none;
-    margin-top: 8px;
-    overflow: hidden;
-}
-
-.filtros-container.active .filtros-dropdown {
-    display: block;
-}
-
-.filtros-option {
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: all 0.2s;
-    color: var(--azul-escuro);
-    font-size: 14px;
-    font-family: 'Poppins';
-}
-
-.filtros-option:hover {
-    background-color: var(--rosa-pastel);
-    color: var(--azul-escuro);
-    padding-left: 25px;
-}
-
-.filtros-option[data-filtro="todos"] {
-    font-weight: 600;
-    background-color: var(--rosa-claro);
-    color: var(--azul-escuro);
-    font-family: 'Poppins';
-}
-
 /* Seção de Produtos - Estilo Atualizado */
 .produtos-corporativos {
     display: grid;
@@ -625,11 +544,7 @@ html,body{
         gap: 20px;
         padding: 20px 4%;
     }
-    
-    .filtros-container {
-        padding: 0 4%;
-        margin: 25px 0 15px;
-    }
+
     
     .produto img {
         height: 170px;
@@ -688,14 +603,7 @@ html,body{
         gap: 15px;
     }
     
-    .filtros-btn {
-        padding: 7px 15px;
-        font-size: 14px;
-    }
-    
-    .filtros-label {
-        font-size: 15px;
-    }
+  
     
     .produto img {
         height: 150px;
@@ -719,28 +627,14 @@ html,body{
 }
 
 @media (max-width: 480px) {
-    .filtros-container {
-        justify-content: center;
-    }
     
     .produtos-corporativos {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Efeitos de Filtro (para usar com JavaScript) */
-.produto.hidden {
-    display: none;
-    animation: fadeOut 0.3s ease;
-}
 
 @keyframes fadeOut {
     from { opacity: 1; transform: scale(1); }
     to { opacity: 0; transform: scale(0.95); }
-}
-
-.filtro-ativo {
-    background-color: var(--rosa-principal) !important;
-    color: white !important;
-    border-color: var(--rosa-escuro) !important;
 }

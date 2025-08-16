@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- ESTADO DA APLICAÇÃO ---
     let pedido = []; // Array para armazenar os itens do pedido
     let tamanhoTortaRedondaSelecionado = null;
+    let tamanhoTortaRetangularSelecionado = null;
 
     // --- SELETORES DO DOM ---
     const menuLinks = document.querySelectorAll('.menu-link');
@@ -36,6 +37,10 @@ document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.btn-opcao-retangular').forEach(b => b.removeAttribute('data-selecionado'));
         btn.setAttribute('data-selecionado', true);
+        tamanhoTortaRetangularSelecionado = { // Armazena o tamanho selecionado
+            tamanho: btn.dataset.tamanho,
+            preco: parseFloat(btn.dataset.preco)
+        };
         mostrarNotificacao(`✅ Tamanho ${btn.dataset.tamanho} fatias selecionado! Agora escolha o sabor.`);
     });
 });
@@ -299,11 +304,11 @@ document.addEventListener('click', function(e) {
         const precos = JSON.parse(produto.dataset.precos);
         const tamanho = btn.dataset.tamanho;
         
-        // Atualizar seleção
+         // Atualizar seleção
         produto.querySelectorAll('.btn-opcao').forEach(b => {
-            delete b.dataset.selecionado;
+            b.removeAttribute('data-selecionado');
         });
-        btn.dataset.selecionado = true;
+        btn.setAttribute('data-selecionado', 'true'); 
         
         // Atualizar preço
         const preco = precos[tamanho];
