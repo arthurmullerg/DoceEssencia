@@ -456,10 +456,10 @@ html,body{
 }
 .whatsapp-float {
   position: fixed;
-  width: 50px;
-  height: 50px;
-  bottom: 20px;
-  right: 17px;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
   background-color: var(--verde-whatsapp);
   color: #FFF;
   border-radius: 50px;
@@ -659,6 +659,25 @@ html,body{
     .footer-col {
     text-align: center;
 }
+.whatsapp-float:hover,
+    .whatsapp-float::after{
+       transform: none;
+        box-shadow: none;
+        
+    }
+     
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+    }
+    
 }
 
 
