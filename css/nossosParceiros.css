@@ -520,5 +520,8 @@ html,body{
   }  .menu-desktop {
     display: none; /* Esconde menu desktop */
   }
+  .footer-col {
+    text-align: center;
+}
 }
 

@@ -610,6 +610,9 @@ html,body{
         font-size: 1.1rem;
         padding: 0 15px;
     }
+    .footer-col {
+    text-align: center;
+}
 }
 
 
