@@ -153,13 +153,57 @@ if (next) {
         });
     });
 }
+document.querySelectorAll('.produto, .produto-ninho').forEach(produto => {
+    const btnMais = produto.querySelector('.btn-quantidade-mais');
+    const btnMenos = produto.querySelector('.btn-quantidade-menos');
+    const quantidadeEl = produto.querySelector('.quantidade');
+
+    
+
+    if (btnMais && btnMenos && quantidadeEl) {
+        btnMais.addEventListener('click', () => {
+            let qtd = parseInt(quantidadeEl.textContent) || 1;
+            quantidadeEl.textContent = qtd + 1;
+        });
+
+        btnMenos.addEventListener('click', () => {
+            let qtd = parseInt(quantidadeEl.textContent) || 1;
+            if (qtd > 1) {
+                quantidadeEl.textContent = qtd - 1;
+            }
+        });
+    }
+});
+
+
+document.querySelectorAll('.btn-escolha').forEach(botao => {
+    botao.addEventListener('click', function() {
+        // Remove a classe active de todos os botões do mesmo grupo
+        const grupo = this.closest('.produto-ninho');
+        grupo.querySelectorAll('.btn-escolha').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        // Adiciona a classe active apenas ao botão clicado
+        this.classList.add('active');
+    });
+});
 
 
     // 3. Adicionar produto ao pedido
   botoesAdicionar.forEach(botao => {
     botao.addEventListener('click', function() {
-        const produto = this.closest('.produto');
-        const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
+        const produto = this.closest('.produto, .produto-ninho');
+        if (!produto) return;
+    const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
+        const precoEl = produto.querySelector('.preco');
+        let preco = 0;
+
+         if (precoEl) {
+            preco = parseFloat(precoEl.textContent.replace('R$', '').replace(',', '.').trim());
+        }
+         const quantidade = parseInt(produto.querySelector('.quantidade')?.textContent) || 1;
+
+    
 
         // Verifica se tem opção de cor e se foi selecionada
         const botoesCor = produto.querySelectorAll('.btn-escolha');
@@ -175,12 +219,17 @@ if (next) {
         }
 
         let nomeCompleto = nomeBase;
-        let preco;
+        
 
         // Adiciona a cor ao nome se existir
         if (corSelecionada) {
             nomeCompleto += ` (Casquinha ${corSelecionada})`;
         }
+
+        pedido.push({ 
+            nome: `${nomeCompleto} (x${quantidade})`,  // Usando nomeCompleto que inclui a cor
+            preco: preco * quantidade 
+        });
 
         const temOpcoes = produto.querySelector('.btn-opcao');
 
@@ -215,9 +264,8 @@ if (next) {
 
         // Adicionar ao pedido se o preço for válido
         if (typeof preco === 'number' && !isNaN(preco)) {
-            pedido.push({ nome: nomeCompleto, preco });
             atualizarContador();
-            mostrarNotificacao(`✅ ${nomeCompleto} adicionado ao pedido!`);
+            mostrarNotificacao(`✅ ${quantidade}x ${nomeCompleto} adicionado(s)!`);
             renderizarPedido();
             atualizarTotalPedido();
         } else {

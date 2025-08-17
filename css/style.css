@@ -421,7 +421,7 @@ html,body{
     font-size: 15px;
 }
 
-.produto .preco {
+.produto .preco, .produto-ninho .preco {
     color: var(--rosa-principal);
     font-weight: bold;
 }
@@ -513,6 +513,21 @@ html,body{
 }
 
 /* Produto */
+.produto-ninho {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    height: 540px;
+    width: 280px;
+    flex: 0 0 280px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 2px solid transparent;
+}
 .produto {
     background-color: #fff;
     border-radius: 20px;
@@ -529,7 +544,7 @@ html,body{
     border: 2px solid transparent;
 }
 
-.produto::before {
+.produto::before,.produto-ninho::before{
     content: '';
     position: absolute;
     top: 0;
@@ -542,13 +557,13 @@ html,body{
     transition: opacity 0.3s ease;
 }
 
-.produto:hover {
+.produto:hover ,.produto-ninho:hover{
     transform: translateY(-15px);
     box-shadow: 0 15px 35px rgba(244, 159, 182, 0.3);
     border: 2px solid var(--rosa-principal);
 }
 
-.produto:hover::before {
+.produto:hover::before ,.produto-ninho:hover::before{
     opacity: 1;
 }
 
@@ -665,7 +680,7 @@ html,body{
     box-shadow: 0 4px 8px rgba(94, 44, 4, 0.2);
 }
 
-.produto:hover .btn-add {
+.produto:hover .btn-add, .produto-ninho:hover .btn-add {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1495,6 +1510,35 @@ section.pedidos::before {
     font-weight: 500;
     display: block;
 }
+.quantidade-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.btn-quantidade-mais,.btn-quantidade-menos {
+    background: var(--rosa-principal);
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-quantidade:hover {
+    background: #e73370;
+}
+
+.quantidade {
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 20px;
+    text-align: center;
+}
 .footer-corporativo {
     background-color: var(--rosa-claro);
     color: white;
@@ -1676,6 +1720,9 @@ section.pedidos::before {
     }
     .texto-aviso{
         text-align: justify;
+    }
+    .btn-quantidade-mais,.btn-quantidade-menos{
+        width: 50px;
     }
 }
 
