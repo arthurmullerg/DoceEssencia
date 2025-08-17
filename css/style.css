@@ -1627,7 +1627,7 @@ section.pedidos::before {
       grid-template-columns: repeat(2, 1fr);
   }
   
-  .produto {
+  .produto{
       width: calc(50% - 20px);
       margin: 0px 10px;
       left: 15px;
@@ -1672,8 +1672,11 @@ section.pedidos::before {
   .menu-desktop {
       display: none;
   }
-  .produto:last-child{
+  .produto-ninho{
     height: 550px;
+  }
+  .produto-ninho .btn-escolha{
+    width: 70px;
   }
   .produto-queridinho {
         width: 90%; /* ocupa toda a largura disponível */

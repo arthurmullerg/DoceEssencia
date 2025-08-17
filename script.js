@@ -95,7 +95,7 @@ document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
         const grid = carousel.querySelector('.produtos-grid-c');
         if (!grid) return; // Pula se o carrossel não tiver a estrutura esperada
 
-        const items = grid.querySelectorAll('.produto');
+        const items = grid.querySelectorAll('.produto, .produto-ninho');
         if (items.length === 0) return; // Pula se não houver itens
 
         const prev = carousel.querySelector('.prev');
