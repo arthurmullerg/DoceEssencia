@@ -8,6 +8,7 @@ document.getElementById('form-cont').addEventListener('submit', function(event) 
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
+        whats: document.getElementById('tel').value,
         subject: document.getElementById('subject').value
     };
      
