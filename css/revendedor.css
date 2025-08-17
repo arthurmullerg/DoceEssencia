@@ -582,6 +582,7 @@ form textarea::placeholder {
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: var(--azul-escuro);
+    text-align: center;
 }
 
 .footer-col p {
@@ -590,12 +591,16 @@ form textarea::placeholder {
     line-height: 1.6;
     font-family: 'Poppins', serif;
     font-size: 15px;
+    text-align: center;
 }
-
+.footer-social{
+     text-align: center;
+}
 .footer-social a {
     color: var(--azul-escuro);
     font-size: 1.5rem;
     transition: all 0.8s;
+    text-align: center;
    
 }
 

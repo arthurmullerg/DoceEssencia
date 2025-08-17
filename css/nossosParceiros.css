@@ -479,6 +479,7 @@ html,body{
     font-size: 1.5rem;
     margin-bottom: 20px;
     color: var(--azul-escuro);
+    text-align: center;
 }
 
 .footer-col p {
@@ -487,12 +488,16 @@ html,body{
     line-height: 1.6;
     font-family: 'Poppins', serif;
     font-size: 15px;
+    text-align: center;
 }
-
+.footer-social{
+     text-align: center;
+}
 .footer-social a {
     color: var(--azul-escuro);
     font-size: 1.5rem;
     transition: all 0.8s;
+    text-align: center;
    
 }
 
@@ -503,6 +508,14 @@ html,body{
     color: var(--azul-escuro);
     font-size: 0.9rem;
     
+}
+
+/* Ícones de contato */
+.footer-col i {
+    margin-right: 10px;
+    color: var(--dourado);
+    width: 30px;
+    text-align: center;
 }
 
 /* Ícones de contato */
