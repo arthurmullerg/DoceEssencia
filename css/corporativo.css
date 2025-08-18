@@ -485,6 +485,9 @@ html,body{
 
 /* Responsividade */
 @media (max-width: 900px) {
+     .whatsapp-float::before{
+        display: none;
+    }
 .header{
     
     top: 0;

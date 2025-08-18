@@ -540,6 +540,9 @@ html,body{
 /* Responsividade */
 
  @media (max-width: 900px) {
+   .whatsapp-float::before{
+        display: none;
+    }
      .header-container {
     flex-direction: row; /* Alinha itens em linha */
     justify-content: flex-start; /* Alinha à esquerda */

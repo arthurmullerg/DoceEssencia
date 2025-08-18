@@ -631,6 +631,9 @@ form textarea::placeholder {
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
+             .whatsapp-float::before{
+                    display: none;
+                }
             .hero-content h1 {
                 font-size: 2rem;
             }

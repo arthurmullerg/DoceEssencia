@@ -1693,6 +1693,9 @@ section.pedidos::before {
     .galeria-tortas{
       margin-top: -250px; /* ajusta a margem superior */
     }
+    .whatsapp-float::before{
+        display: none;
+    }
 
     .whatsapp-float:hover,
     .whatsapp-float::after,
