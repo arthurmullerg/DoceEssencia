@@ -604,13 +604,12 @@ form textarea::placeholder {
    
 }
 
-.footer-bottom {
+.footer-bottom, .footer-bottom a {
     text-align: center;
     padding-top: 30px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--azul-escuro);
     font-size: 0.9rem;
-    
 }
 
 /* Ícones de contato */
@@ -619,6 +618,14 @@ form textarea::placeholder {
     color: var(--dourado);
     width: 30px;
     text-align: center;
+}
+.desc-politica{
+    color: black;
+    font-size: 8px;
+}
+.desc-politica a{
+    border-bottom: 1px solid var(--azul-escuro);
+    color: var(--azul-principal);
 }
 
 

@@ -1,0 +1,102 @@
+
+/* Container Principal */
+.politica-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Card da Política */
+.politica {
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 2.5rem;
+    border: 1px solid #e8d7d1;
+}
+
+/* Título Principal */
+.politica h2 {
+    color: #d45d79;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f0d6de;
+    padding-bottom: 0.5rem;
+     font-family: 'Poppins', serif;
+}
+
+/* Parágrafos */
+.politica p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', serif;
+}
+
+/* Seções */
+.politica-section {
+    margin-bottom: 2rem;
+}
+
+/* Subtítulos */
+.politica h3 {
+    color: #d45d79;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', serif;
+}
+
+/* Listas */
+.politica ul {
+    color: #555;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.politica li {
+    margin-bottom: 0.5rem;
+   font-family: 'Poppins', serif;
+}
+
+/* Links */
+.politica a {
+    color: #d45d79;
+    text-decoration: none;
+}
+
+.politica a:hover {
+    text-decoration: underline;
+}
+
+/* Destaques */
+.politica strong {
+    color: #d45d79;
+}
+
+/* Data de atualização */
+.last-update {
+    color: #888;
+    font-style: italic;
+    text-align: right;
+    margin-top: 1.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .politica-container {
+        margin-top: 180px;
+        padding: 1rem;
+    }
+    
+    .politica {
+        padding: 1.5rem;
+    }
+    
+    .politica h2 {
+        font-size: 1.5rem;
+    }
+}

@@ -501,13 +501,12 @@ html,body{
    
 }
 
-.footer-bottom {
+.footer-bottom, .footer-bottom a {
     text-align: center;
     padding-top: 30px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     color: var(--azul-escuro);
     font-size: 0.9rem;
-    
 }
 
 /* Ícones de contato */
