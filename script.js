@@ -153,27 +153,6 @@ if (next) {
         });
     });
 }
-document.querySelectorAll('.produto, .produto-ninho').forEach(produto => {
-    const btnMais = produto.querySelector('.btn-quantidade-mais');
-    const btnMenos = produto.querySelector('.btn-quantidade-menos');
-    const quantidadeEl = produto.querySelector('.quantidade');
-
-    
-
-    if (btnMais && btnMenos && quantidadeEl) {
-        btnMais.addEventListener('click', () => {
-            let qtd = parseInt(quantidadeEl.textContent) || 1;
-            quantidadeEl.textContent = qtd + 1;
-        });
-
-        btnMenos.addEventListener('click', () => {
-            let qtd = parseInt(quantidadeEl.textContent) || 1;
-            if (qtd > 1) {
-                quantidadeEl.textContent = qtd - 1;
-            }
-        });
-    }
-});
 
 
 document.querySelectorAll('.btn-escolha').forEach(botao => {
@@ -189,21 +168,14 @@ document.querySelectorAll('.btn-escolha').forEach(botao => {
 });
 
 
-    // 3. Adicionar produto ao pedido
-  botoesAdicionar.forEach(botao => {
+  // 3. Adicionar produto ao pedido - VERSÃO CORRIGIDA
+botoesAdicionar.forEach(botao => {
     botao.addEventListener('click', function() {
         const produto = this.closest('.produto, .produto-ninho');
         if (!produto) return;
-    const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
-        const precoEl = produto.querySelector('.preco');
-        let preco = 0;
-
-         if (precoEl) {
-            preco = parseFloat(precoEl.textContent.replace('R$', '').replace(',', '.').trim());
-        }
-         const quantidade = parseInt(produto.querySelector('.quantidade')?.textContent) || 1;
-
-    
+        
+        const nomeBase = produto.querySelector('.nome-c')?.textContent?.trim() || 'Produto sem nome';
+        const quantidade = parseInt(produto.querySelector('.quantidade')?.textContent) || 1;
 
         // Verifica se tem opção de cor e se foi selecionada
         const botoesCor = produto.querySelectorAll('.btn-escolha');
@@ -220,17 +192,13 @@ document.querySelectorAll('.btn-escolha').forEach(botao => {
 
         let nomeCompleto = nomeBase;
         
-
         // Adiciona a cor ao nome se existir
         if (corSelecionada) {
             nomeCompleto += ` (Casquinha ${corSelecionada})`;
         }
 
-        pedido.push({ 
-            nome: `${nomeCompleto} (x${quantidade})`,  // Usando nomeCompleto que inclui a cor
-            preco: preco * quantidade 
-        });
-
+        // Obter o preço
+        let preco = 0;
         const temOpcoes = produto.querySelector('.btn-opcao');
 
         if (temOpcoes) {
@@ -252,18 +220,22 @@ document.querySelectorAll('.btn-escolha').forEach(botao => {
             } else {
                 nomeCompleto = `${nomeBase} (${tamanho})`;
             }
-
         } else {
             // --- Produtos simples (ex: Cones) ---
             const precoEl = produto.querySelector('.preco');
             if (precoEl) {
-                const precoTexto = precoEl.textContent || '';
-                preco = parseFloat(precoTexto.replace('R$', '').replace(',', '.').trim());
+                preco = parseFloat(precoEl.textContent.replace('R$', '').replace(',', '.').trim());
             }
         }
 
-        // Adicionar ao pedido se o preço for válido
+        // --- ADIÇÃO ÚNICA AO PEDIDO ---
+        // Verifica se o preço é válido antes de adicionar
         if (typeof preco === 'number' && !isNaN(preco)) {
+            pedido.push({ 
+                nome: `${nomeCompleto} (x${quantidade})`,
+                preco: preco * quantidade 
+            });
+            
             atualizarContador();
             mostrarNotificacao(`✅ ${quantidade}x ${nomeCompleto} adicionado(s)!`);
             renderizarPedido();
