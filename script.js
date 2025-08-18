@@ -496,11 +496,13 @@ function configurarBrownies() {
             const totalProdutos = pedido.reduce((sum, item) => sum + item.preco, 0);
             const totalComFrete = totalProdutos + frete;
 
-            mensagem += `\nFrete para o bairro:${bairroSelecionado.replace(/-/g, ' ')}: R$ ${frete.toFixed(2).replace('.', ',')}`;
+            mensagem += '\nEndereço: Rua: Nº:';
+            mensagem += `\nFrete para o Bairro: ${bairroSelecionado.replace(/-/g, ' ')}: R$ ${frete.toFixed(2).replace('.', ',')}`;
             mensagem += `\n*Total (produtos + frete): R$ ${totalComFrete.toFixed(2).replace('.', ',')}*`;
         } else {
             mensagem += ' um pedido.';
         }
+
 
         mensagem += '\n\nAguardo confirmação, obrigado!';
 
