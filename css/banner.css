@@ -248,7 +248,7 @@
 
         @media (max-width: 768px) {
             .banner-fullscreen {
-                height: 100vh;
+                height: 130vh;
                 min-height: 100vh;
                 max-height: none;
                 padding-top: 175px; 
@@ -269,15 +269,14 @@
             }
             
             .slide-content {
-            
                 text-align: center;
                 order: 1;
-                 color: #ffffff !important;
-                  position: relative;
-    z-index: 2;
-    width: 100%;
-    min-height: auto;
-    overflow: visible;
+                color: #ffffff !important;
+                position: relative;
+                z-index: 2;
+                width: 100%;
+                min-height: auto;
+                overflow: visible;
             }
             
             .slide:nth-child(even) .slide-content {
@@ -296,16 +295,10 @@
             }
             
             .slide-image {
-                width: 100%;
+                width: 1000px;
                 order: 2;
-                margin: 1rem 0;
             }
             
-            .slide-image img {
-                max-height: 50vh;
-                max-width: 100%;
-                border-width: 6px;
-            }
             
             .slide-btn-container {
                 order: 3;
@@ -325,6 +318,7 @@
             }
             
             .nav-btn {
+                top: 60%;
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
@@ -356,8 +350,8 @@
             }
 
             .slide-image img {
-                max-height: 30vh;
-                max-width: 90%;
+                max-height: 60vh;
+                max-width: 100%;
                 border-width: 4px;
             }
 
@@ -365,4 +359,5 @@
                 padding: 0.7rem 1.5rem;
                 font-size: 0.85rem;
             }
+            
         }
