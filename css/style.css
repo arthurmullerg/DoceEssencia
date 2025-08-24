@@ -1694,6 +1694,9 @@ section.pedidos::before {
     .galeria-tortas{
       margin-top: -250px; /* ajusta a margem superior */
     }
+    .whatsapp-float::before{
+        display: none;
+    }
 
     .whatsapp-float:hover,
     .whatsapp-float::after,
@@ -1701,10 +1704,8 @@ section.pedidos::before {
     .btn-whatsapp:hover{
        transform: none;
         box-shadow: none;
-        display: none;  
-    }
-    .whatsapp-float::after{
-        content: none;
+        display: none;
+        
     }
      
     .whatsapp-float {
@@ -1718,9 +1719,6 @@ section.pedidos::before {
         width: 30px;
         height: 30px;
     }
-
-  
-
     
     .btn-whatsapp,
     .btn-bairro{
@@ -1760,7 +1758,6 @@ section.pedidos::before {
     .menu-desktop{
       display: none;
     }
-  
     
     footer{
       font-size: 8px;
