@@ -421,6 +421,7 @@ html,body{
         .cta-section h2 {
             font-size: 2rem;
             margin-bottom: 20px;
+            font-family: 'Poppins', serif;
         }
 
         .cta-section p {
@@ -429,6 +430,7 @@ html,body{
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-family: 'Poppins', serif;
         }
 
         .cta-form {
@@ -443,6 +445,13 @@ html,body{
         .form-group {
             margin-bottom: 20px;
         }
+        .form-group input[type="submit"] {
+            background-color: var(--rosa-principal);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
         .form-group input {
             width: 100%;
@@ -452,6 +461,7 @@ html,body{
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             transition: all 0.3s ease;
+            
         }
 
         .form-group input:focus {
@@ -622,6 +632,7 @@ form textarea::placeholder {
 .desc-politica{
     color: black;
     font-size: 8px;
+    font-family: 'Poppins', serif;
 }
 .desc-politica a{
     border-bottom: 1px solid var(--azul-escuro);
@@ -651,6 +662,7 @@ form textarea::placeholder {
             .cta-form {
                 padding: 30px 20px;
             }
+            
         }
 
         @media (max-width: 480px) {
