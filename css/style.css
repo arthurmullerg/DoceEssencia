@@ -1673,6 +1673,7 @@ section.pedidos::before {
   }
   .produto-ninho{
     height: 550px;
+    margin-left: 12px;
   }
   .produto-ninho .btn-escolha{
     width: 70px;
@@ -1703,6 +1704,7 @@ section.pedidos::before {
     .btn-whatsapp:hover{
        transform: none;
         box-shadow: none;
+        display: none;
         
     }
      
@@ -1728,6 +1730,9 @@ section.pedidos::before {
     }
     .btn-quantidade-mais,.btn-quantidade-menos{
         width: 50px;
+    }
+    .whatsapp-float::before{
+        display: none;
     }
 }
 
