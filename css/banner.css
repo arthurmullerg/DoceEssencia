@@ -267,6 +267,26 @@
                 grid-template-columns: none;
                 grid-template-rows: none;
             }
+            .foto1{
+                 background-image: url('../imagens/torta-principal.jpeg');
+                background-position: center;
+                background-size: cover;
+            }
+            .foto2{
+                 background-image: url('../imagens/cone-principal.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+            .foto3{
+                 background-image: url('../imagens/brownie-banner.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+            .foto4{
+                 background-image: url('../imagens/torta-banner.jpg');
+                background-position: center;
+                background-size: cover;
+            }
             
             .slide-content {
                 text-align: center;
@@ -278,6 +298,13 @@
                 min-height: auto;
                 overflow: visible;
             }
+            .slide::before {
+        background: linear-gradient(135deg, rgba(38, 103, 138, 0.6), rgba(244, 159, 182, 0.4));
+    }
+
+    .slide:nth-child(even)::before {
+        background: linear-gradient(135deg, rgba(244, 159, 182, 0.5), rgba(38, 103, 138, 0.5));
+    }
             
             .slide:nth-child(even) .slide-content {
                 text-align: center;
@@ -285,18 +312,22 @@
             }
             
             .slide-title {
-                font-size: clamp(1.8rem, 5vw, 2.5rem);
+                font-size: clamp(2rem, 5vw, 2.5rem);
                 margin-bottom: 1rem;
             }
             
             .slide-desc {
-                font-size: clamp(0.9rem, 3vw, 1.1rem);
+                font-size: clamp(1.1rem, 3vw, 1.1rem);
                 margin-bottom: 0;
+                line-height: 30px;
             }
             
             .slide-image {
                 width: 1000px;
                 order: 2;
+            }
+            .slide-image img {
+              display: none;
             }
             
             
