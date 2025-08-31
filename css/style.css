@@ -1783,6 +1783,9 @@ section.pedidos::before {
     width: 100%; /* ocupa a largura */
     max-width: 280px;
   }
+  .endereco-form .titulo-centralizado{
+    font-size: 1.8rem;
+  }
 }
 
 
