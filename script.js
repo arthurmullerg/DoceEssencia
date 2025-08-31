@@ -526,9 +526,8 @@ function configurarBrownies() {
 }
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
-    if (btnEnviarWhats) {
+   if (btnEnviarWhats) {
     btnEnviarWhats.addEventListener('click', () => {
-
         const selectBairro = document.getElementById("selectAeroclube");
         const bairroSelecionado = selectBairro ? selectBairro.value : null;
 
@@ -538,6 +537,11 @@ function configurarBrownies() {
         }
 
         const frete = precoFrete[bairroSelecionado] || 0;
+
+        // 🔹 Captura novos campos
+        const rua = document.getElementById("rua")?.value || "";
+        const numer = document.getElementById("numero")?.value || "";
+        const complemento = document.getElementById("complemento")?.value || "";
 
         let mensagem = 'Olá! Gostaria de fazer';
 
@@ -551,13 +555,17 @@ function configurarBrownies() {
             const totalProdutos = pedido.reduce((sum, item) => sum + item.preco, 0);
             const totalComFrete = totalProdutos + frete;
 
-            mensagem += '\nEndereço: Rua: Nº:';
-            mensagem += `\nFrete para o Bairro: ${bairroSelecionado.replace(/-/g, ' ')}: R$ ${frete.toFixed(2).replace('.', ',')}`;
+            mensagem += `\n Endereço de entrega:`;
+            mensagem += `\nRua: ${rua}`;
+            mensagem += `\nNúmero: ${numer}`;
+            if (complemento) mensagem += `\nComplemento: ${complemento}`;
+            mensagem += `\nBairro: ${bairroSelecionado.replace(/-/g, ' ')}`;
+
+            mensagem += `\n\n Frete: R$ ${frete.toFixed(2).replace('.', ',')}`;
             mensagem += `\n*Total (produtos + frete): R$ ${totalComFrete.toFixed(2).replace('.', ',')}*`;
         } else {
             mensagem += ' um pedido.';
         }
-
 
         mensagem += '\n\nAguardo confirmação, obrigado!';
 
@@ -677,12 +685,16 @@ const resultadoFrete = document.getElementById("frete-resultado");
 
 selectBairro.addEventListener("change", function() {
   const bairroSelecionado = this.value;
-  
+
   if (bairroSelecionado && precoFrete[bairroSelecionado] !== undefined) {
     const preco = precoFrete[bairroSelecionado].toFixed(2);
-    resultadoFrete.textContent = `Preço do frete para ${bairroSelecionado.replace(/-/g, ' ')}: R$ ${preco}`;
+    resultadoFrete.textContent = `Frete para ${bairroSelecionado.replace(/-/g, ' ')}: R$ ${preco.replace('.', ',')}`;
+    
+    // mostra com fade-in
+    resultadoFrete.classList.add("show");
   } else {
     resultadoFrete.textContent = "";
+    resultadoFrete.classList.remove("show");
   }
 });
 
