@@ -663,7 +663,8 @@ html,body{
 
 .btn-add-pote,
 .btn-add-escondidinho,
-.btn-add-fatia {
+.btn-add-fatia,
+.btn-add-barra {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1309,10 +1310,15 @@ section.pedidos::before {
 .center {
     display: flex;
     justify-content: center;
+    gap: 20px; /* espaço entre os itens */
     margin-bottom: 20px;
 }
 
-/* IMAGEM DO BROWNIE */
+.item {
+    display: flex;
+    flex-direction: column; /* coloca imagem em cima e botão embaixo */
+    align-items: center;    /* centraliza botão embaixo da imagem */
+}
 .img-solo {
     width: 220px;
     height: 220px;
@@ -1320,6 +1326,17 @@ section.pedidos::before {
     object-fit: cover;
     box-shadow: 0 8px 16px rgba(94, 44, 4, 0.2);
     border: 3px solid #f0e6d8;
+}
+
+.btn-gramas {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--rosa-principal);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 /* TÍTULO */
@@ -1345,7 +1362,8 @@ section.pedidos::before {
 
 /* OPÇÕES DE SABOR */
 .flavor-options {
-    display: flex;
+    display: flexbox;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 12px;
     margin-bottom: 25px;
@@ -1360,6 +1378,7 @@ section.pedidos::before {
     transition: all 0.3s ease;
     background: #f9f5f0;
     border: 1px solid #f0e6d8;
+    margin-top: 10px;
 }
 
 .flavor-option.selected {
@@ -1727,6 +1746,15 @@ section.pedidos::before {
     .btn-quantidade-mais,.btn-quantidade-menos{
         width: 50px;
     }
+     .center {
+    flex-direction: column;   /* empilha os itens */
+    align-items: center;
+  }
+
+  .item {
+    width: 100%; /* ocupa a largura */
+    max-width: 280px;
+  }
 }
 
 

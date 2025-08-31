@@ -355,6 +355,61 @@ document.querySelectorAll('.menu-link-formato').forEach(link => {
     });
 });
 
+let tamanhoSelecionado = null;
+let precoSelecionado = 0;
+
+document.querySelectorAll('.btn-gramas').forEach(botao => {
+    botao.addEventListener('click', () => {
+        tamanhoSelecionado = botao.dataset.peso;
+        precoSelecionado = parseFloat(botao.dataset.preco);
+
+        // feedback visual: marcar botão ativo
+        document.querySelectorAll('.btn-gramas').forEach(b => b.classList.remove('active'));
+        botao.classList.add('active');
+
+        mostrarNotificacao(
+            `Tamanho da Barra escolhido: ${tamanhoSelecionado} `
+        );
+    });
+});
+
+document.querySelector('.btn-add-barra').addEventListener('click', () => {
+    const container = document.querySelector('#conteudo-barra'); 
+    const saborSelecionado = container.querySelector('.flavor-option.selected');
+    const sabor = saborSelecionado?.dataset.flavor || 'Sem sabor';
+    const quantidade = parseInt(container.querySelector('.quantidade')?.textContent) || 1;
+
+    if (!tamanhoSelecionado || isNaN(precoSelecionado)) {
+        mostrarNotificacao("❌ Escolha um tamanho antes de adicionar!");
+        return;
+    }
+
+let precoFinal = precoSelecionado;
+
+switch (saborSelecionado?.dataset.flavor) {
+  case 'Ninho com Nutella':
+    if (tamanhoSelecionado === '135g') precoFinal += 2;
+    else if (tamanhoSelecionado === '225g') precoFinal += 4;
+    break;
+
+   }
+    // ------------------------------------
+
+    const nomeProduto = `Barra ${tamanhoSelecionado} - ${sabor}`;
+
+    pedido.push({
+        nome: `${nomeProduto} (x${quantidade})`,
+        preco: precoFinal * quantidade
+    });
+
+    atualizarContador();
+    renderizarPedido();
+    atualizarTotalPedido();
+    mostrarNotificacao(`✅ ${quantidade}x ${nomeProduto} adicionado(s)!`);
+});
+
+
+
 function configurarMenuBrownie() {
     const brownieLinks = document.querySelectorAll('#brownie .menu-link-formato');
     
@@ -584,27 +639,7 @@ function inicializarTortas() {
     });
 }
 
-    // 5. Menu mobile
- const toggle = document.getElementById('menu-toggle');
-const sidebar = document.getElementById('sidebar');
-const overlay = document.getElementById('overlay');
-const closeSidebar = document.getElementById('close-sidebar');
-
-// Abrir menu
-toggle.addEventListener('click', () => {
-    sidebar.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-    toggle.classList.add('hidden'); // Esconde o ícone
-});
-
-// Fechar menu (clique no overlay)
-overlay.addEventListener('click', () => {
-    sidebar.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-    toggle.classList.remove('hidden'); // Mostra o ícone novamente
-});
+   
 
     // --- ESTADO INICIAL DA PÁGINA ---
     mostrarSecao('cones'); // Mostra a seção "Cones" por padrão

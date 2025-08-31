@@ -196,7 +196,7 @@
             </div>
 
             <div class="produto-queridinho">
-                <div class="img-mosaico-single" style="background-image: url(./imagens/barra\ de\ chocolate.jpeg);border: none;"></div>
+                <div class="img-mosaico-single" style="background-image: url(./imagens/barra-aberta.jpg);border: none;"></div>
                 <p class="nome">Barra de Chocolate</p>
                 <p class="preco">R$ 14,50</p>
             </div>
@@ -628,7 +628,7 @@
     <!-- Conteúdo para Brownie em Fatia -->
     <div class="tipo-conteudo" id="conteudo-fatia" style="display:none;">
            <div class="center">
-        <img src="./imagens/brownie-fatia.jpg" alt="Brownie Fatia" class="img-solo">
+        <img src="./imagens/fatia-brownie.jpg" alt="Brownie Fatia" class="img-solo">
     </div>
     
     <h3 class="sabores-titulo">Escolha seu sabor</h3>
@@ -666,38 +666,58 @@
 </div>
 </section>
 
-         <section class="cardapio" id="barra">
-            <div class="tipo-conteudo" id="conteudo-pote">
-    <div class="center">
-        <img src="./imagens/bolo de pote com colher.jpeg" alt="Brownie Ninho com Nutella" class="img-solo">
-    </div>
+    <section class="cardapio" id="barra">
+        <div class="tipo-conteudo" id="conteudo-barra">
+        <h3 class="sabores-titulo">Escolha o tamanho da barra</h3>
+             <div class="center">
+            <div class="item">
+                <img src="./imagens/barra.jpg" alt="Barra Ninho com Nutella" class="img-solo">
+                <button class="btn-gramas" data-peso="225g" data-preco="22.00">225g (R$ 22,00)</button>
+            </div>
+
+            <div class="item">
+                <img src="./imagens/barra-2.jpg" alt="Barra Ninho com Nutella" class="img-solo">
+                <button class="btn-gramas" data-peso="135g" data-preco="14.00">135g (R$ 14,00)</button>
+            </div>
+        </div>
     
     <h3 class="sabores-titulo">Escolha seu sabor</h3>
     
     <div class="flavor-selector">
         <div class="flavor-options">
-            <div class="flavor-option selected" data-flavor="ninho-nutella" data-preco="15">
-                <div class="flavor-icon">🍫</div>
-                <div class="flavor-name">Ninho com Nutella</div>
+             <div class="flavor-option" 
+            data-flavor="Ninho com Nutella"
+            data-acrescimo-135="2"
+            data-acrescimo-225="4">
+        <div class="flavor-name">Ninho com Nutella (+R$ 2,00 / 135g, +R$ 4,00 / 225g)</div>
             </div>
             
-            <div class="flavor-option" data-flavor="ninho" data-preco="15">
-                <div class="flavor-icon">🥛</div>
-                <div class="flavor-name">Ninho</div>
+            <div class="flavor-option" data-flavor="Ninho com Caramelo de Amendoim">
+                <div class="flavor-name">Ninho com Caramelo de Amendoim </div>
             </div>
             
-            <div class="flavor-option" data-flavor="brigadeiro" data-preco="15">
-                <div class="flavor-icon">🍮</div>
+            <div class="flavor-option" data-flavor="Brigadeiro">
                 <div class="flavor-name">Brigadeiro</div>
             </div>
+
+            <div class="flavor-option" data-flavor="Meio Amargo">
+                <div class="flavor-name">Meio Amargo</div>
+            </div>
+
+            <div class="flavor-option" data-flavor="Ninho com Brigadeiro">
+                <div class="flavor-name">Ninho com Brigadeiro</div>
+            </div>
         </div>
+
         
-        <div class="preco-box">
-            <span class="preco">R$ 15,00</span>
-            <span class="unidade">/unidade</span>
-        </div>
+           <div class="quantidade-container">
+            <button class="btn-quantidade-menos">-</button>
+            <span class="quantidade">1</span>
+            <button class="btn-quantidade-mais">+</button>
+         </div>
         
-        <button class="btn-add-pote">Adicionar ao pedido</button>
+        
+        <button class="btn-add-barra">Adicionar ao pedido</button>
     </div>
 </div>
         </section>
@@ -787,7 +807,7 @@
             <div class="footer-col">
                 <h3>Entre em Contato</h3>
                 <p><i class="fas fa-phone"></i> (51) 9809-7470</p>
-                <p><i class="fas fa-envelope"></i> confeitaria@doceessencia.com</p>
+                <p><i class="fas fa-envelope"></i>doceessencia02@gmail.com</p>
                 <p>Faça seu pedido ou solicite um orçamento!</p>
             </div>
 
@@ -801,6 +821,7 @@
 </footer>
 
     <script src="script.js"></script>
+    <script src="sidebar.js"></script>
 
 </body>
 </html>
