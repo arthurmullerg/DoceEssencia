@@ -376,13 +376,19 @@ document.querySelectorAll('.btn-gramas').forEach(botao => {
 document.querySelector('.btn-add-barra').addEventListener('click', () => {
     const container = document.querySelector('#conteudo-barra'); 
     const saborSelecionado = container.querySelector('.flavor-option.selected');
-    const sabor = saborSelecionado?.dataset.flavor || 'Sem sabor';
+    const sabor = saborSelecionado?.dataset.flavor;
     const quantidade = parseInt(container.querySelector('.quantidade')?.textContent) || 1;
 
     if (!tamanhoSelecionado || isNaN(precoSelecionado)) {
-        mostrarNotificacao("❌ Escolha um tamanho antes de adicionar!");
+      alert("Escolha um tamanho antes de adicionar!");
         return;
     }
+
+    if(saborSelecionado === null) {
+        alert("Escolha um sabor antes de adicionar!");
+        return;
+    }
+
 
 let precoFinal = precoSelecionado;
 
@@ -524,6 +530,100 @@ function configurarBrownies() {
     adicionarBrownie('escondidinho');
     adicionarBrownie('fatia');
 }
+
+function inicializarDocinhos() {
+    const linksFormatos = document.querySelectorAll('#docinhos .menu-link-formato');
+    const opcoes = document.querySelectorAll('#docinhos .docinho-opcoes');
+
+    // Sempre mostrar Tradicional no início
+    opcoes.forEach(sec => sec.style.display = 'none');
+    const tradicional = document.getElementById('tradicional');
+    tradicional.style.display = 'block';
+
+    // Marca link Tradicional como ativo
+    linksFormatos.forEach(link => link.classList.remove('active'));
+    document.querySelector('#docinhos .menu-link-formato[href="#tradicional"]').classList.add('active');
+
+  
+
+    // Clique nos links de formato
+    linksFormatos.forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+
+            linksFormatos.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+
+            opcoes.forEach(sec => sec.style.display = 'none');
+            const target = document.querySelector(link.getAttribute('href'));
+            target.style.display = 'block';
+
+            // Sempre selecionar o primeiro sabor e tamanho do formato
+            const primeiroSabor = target.querySelector('.btn-sabor');
+            const primeiroTamanho = target.querySelector('.btn-tamanho');
+
+            target.querySelectorAll('.btn-sabor, .btn-tamanho').forEach(b => b.classList.remove('selected'));
+
+            if (primeiroSabor) {
+                primeiroSabor.classList.add('selected');
+                saborSelecionado = primeiroSabor.dataset.sabor;
+            }
+
+            if (primeiroTamanho) {
+                primeiroTamanho.classList.add('selected');
+                tamanhoSelecionado = primeiroTamanho.dataset.tamanho;
+                precoSelecionado = parseFloat(primeiroTamanho.dataset.preco);
+            }
+        });
+    });
+
+    // Clique em sabores
+    document.querySelectorAll('.btn-sabor').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const container = btn.closest('.docinho-opcoes');
+            container.querySelectorAll('.btn-sabor').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            saborSelecionado = btn.dataset.sabor;
+        });
+    });
+
+    // Clique em tamanhos
+    document.querySelectorAll('.btn-tamanho').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const container = btn.closest('.docinho-opcoes');
+            container.querySelectorAll('.btn-tamanho').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            tamanhoSelecionado = btn.dataset.tamanho;
+            precoSelecionado = parseFloat(btn.dataset.preco);
+        });
+    });
+}
+
+// Inicializa
+inicializarDocinhos();
+
+document.getElementById('btn-add-docinho').addEventListener('click', () => {
+    // Pega o container ativo
+    const containerAtivo = document.querySelector('.docinho-opcoes[style*="display: block"]');
+
+    if (!containerAtivo) return;
+
+    // Nome do produto
+    const tipoCaixa = containerAtivo.querySelector('h3').textContent.trim();
+    const nomeProduto = `${tipoCaixa} - ${tamanhoSelecionado} unidades - ${saborSelecionado}`;
+
+    // Adiciona ao array pedido
+    pedido.push({
+        nome: nomeProduto,
+        preco: precoSelecionado
+    });
+
+    // Atualiza contador, renderiza pedido e mostra notificação
+    atualizarContador();
+    renderizarPedido();
+    atualizarTotalPedido();
+    mostrarNotificacao(`✅ ${nomeProduto} adicionado ao pedido!`);
+});
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
    if (btnEnviarWhats) {
