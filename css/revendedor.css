@@ -233,59 +233,80 @@ html,body{
   pointer-events: none;
   transform: translateX(-20px);
 }
-  .hero-section {
-            position: relative;
-            height: 80vh;
-            min-height: 500px;
-            background-color: var(--azul-escuro);       
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-bottom: 0px;
-        }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(244, 159, 182, 0.3) 0%, rgba(193, 233, 255, 0.3) 100%);
-            z-index: 1;
-        }
+.intro-corporativa {
+    background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-escuro) 100%);
+    color: white;
+    padding: 60px 2%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 15px;
+}
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
-        }
+.intro-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
 
-        .hero-content h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-             font-family: 'Poppins', serif;
-        }
+.intro-corporativa h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-family: 'Poppins';
+}
 
-        .handwritten {
-            font-family: 'Dancing Script', cursive;
-            display: block;
-            font-size: 2.2rem;
-            margin-top: 10px;
-            color: var(--rosa-claro);
-        }
+.intro-corporativa h1 span {
+    color: var(--rosa-principal);
+    display: block;
+    font-family: 'Poppins';
+}
 
-        .hero-content p {
-            font-size: 1.0rem;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
-             font-family: 'Poppins', serif;
-        }
+.intro-corporativa p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+    font-family: 'Poppins';
+}
 
+.detalhe-rosa {
+    width: 100px;
+    height: 4px;
+    background: var(--rosa-principal);
+    margin: 25px auto;
+    border-radius: 2px;
+}
+
+/* Efeitos decorativos */
+.intro-corporativa::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: var(--rosa-claro);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.intro-corporativa::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 250px;
+    height: 250px;
+    background: var(--rosa-pastel);
+    opacity: 0.1;
+    border-radius: 50%;
+    z-index: 1;
+}
         /* Benefits Section */
         .benefits-section {
             padding: 60px 0;
@@ -645,14 +666,11 @@ form textarea::placeholder {
              .whatsapp-float::before{
                     display: none;
                 }
-            .hero-content h1 {
+            .intro-content h1 {
                 font-size: 2rem;
             }
-            .hero-content p{
+            .intro-content p{
                 font-size: 1rem;
-            }
-            .handwritten {
-                font-size: 1.8rem;
             }
             
             .benefits-grid {

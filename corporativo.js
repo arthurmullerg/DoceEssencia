@@ -1,3 +1,4 @@
+/* DEIXAR EM OFF POR ENQUANTO
 const filtrosMenu = document.getElementById('filtrosMenu');
 const filtroAtual = document.getElementById('filtroAtual');
 const opcoes = filtrosMenu.querySelectorAll('.filtros-option');
@@ -35,3 +36,4 @@ document.addEventListener('click', (event) => {
     filtrosMenu.classList.remove('active');
   }
 }); 
+*/
