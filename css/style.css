@@ -1424,9 +1424,14 @@ section.pedidos::before {
 }
 
 .flavor-name {
-    font-size: 0.8rem;
-    font-weight: 500;
-    font-family: 'Poppins', serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: 'Poppins', serif;
+}
+
+.flavor-name span {
+  display: block; /* força quebra automática */
+  margin-left: 10px; /* opcional: dá um recuo */
 }
 
 .preco-box {

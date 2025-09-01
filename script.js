@@ -755,30 +755,35 @@ function inicializarTortas() {
     renderizarPedido();
     configurarSelecaoCoresCasquinha();
 });
-
 // Mapeamento dos bairros para o preço do frete
 const precoFrete = {
   "aeroclube": 10.00,
-  "bela-vista": 15.00,
-  "centenario": 12.00,
-  "centro": 8.00,
-  "cinco-de-maio": 14.00,
+  "bela-vista": 10.00,
+  "centro": 11.00,
+  "cinco-de-maio": 9.00,
+  "estacao": 10.00,
+  "faxinal": 15.00,
   "ferroviario": 13.00,
-  "germano-henke": 16.00,
-  "imigracao": 15.00,
-  "industrial": 18.00,
-  "panorama": 20.00,
-  "por-do-sol": 22.00,
-  "progresso": 14.00,
-  "rui-barbosa": 12.00,
-  "sao-joao": 10.00,
-  "sao-paulo": 17.00,
-  "santa-rita": 13.00,
+  "fortaleza": 16.00,
+  "germano-henke": 11.00,
+  "imigracao": 16.00,
+  "industrial": 10.00,
+  "municipal": 9.00,
+  "olaria": 15.00,
+  "panorama": 16.00,
+  "progresso": 13.00,
+  "rui-barbosa": 13.00,
+  "santa-rita": 8.00,
   "santo-antonio": 11.00,
-  "senai": 9.00,
-  "timbauva": 19.00,
-  "zona-rural": 25.00
+  "sao-joao": 14.00,
+  "sao-paulo": 9.00,
+  "sao-pedro": 9.00,
+  "senai": 8.00,
+  "tanac": 9.00,
+  "timbauva": 9.00,
+  "zootecnia": 11.00
 };
+
 
 const selectBairro = document.getElementById("selectAeroclube");
 const resultadoFrete = document.getElementById("frete-resultado");
