@@ -68,6 +68,20 @@ document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
         }
     }
 
+   function mostrarNotificacaoErro(mensagem) {
+    const notificacaoErroEl = document.getElementById('notificacao-erro');
+    const notificacaoErroTextoEl = document.getElementById('notificacao-erro-texto');
+
+    if (notificacaoErroEl && notificacaoErroTextoEl) {
+        notificacaoErroTextoEl.textContent = mensagem;
+        notificacaoErroEl.classList.add('mostrar');
+        setTimeout(() => {
+            notificacaoErroEl.classList.remove('mostrar');
+        }, 3000);
+    }
+}
+
+
     // Atualiza o número no ícone do carrinho
     function atualizarContador() {
         if (pedidoCountEl) {
@@ -184,7 +198,7 @@ botoesAdicionar.forEach(botao => {
         if (botoesCor.length > 0) {
             const btnCorAtivo = produto.querySelector('.btn-escolha.active');
             if (!btnCorAtivo) {
-                mostrarNotificacao('⚠️ Por favor, selecione a cor da casquinha!');
+                mostrarNotificacaoErro('⚠️ Por favor, selecione a cor da casquinha!');
                 return;
             }
             corSelecionada = btnCorAtivo.textContent.trim();
@@ -205,7 +219,7 @@ botoesAdicionar.forEach(botao => {
             // --- Produtos com opções (ex: Tortas ou Bolos) ---
             const tamanhoEl = produto.querySelector('.btn-opcao[data-selecionado]');
             if (!tamanhoEl) {
-                mostrarNotificacao('⚠️ Por favor, selecione um tamanho!');
+                mostrarNotificacaoErro('⚠️ Por favor, selecione um tamanho!');
                 return;
             }
 
@@ -241,8 +255,8 @@ botoesAdicionar.forEach(botao => {
             renderizarPedido();
             atualizarTotalPedido();
         } else {
-            console.error("❌ Preço inválido ou não encontrado para:", produto);
-            mostrarNotificacao('❌ Erro ao adicionar o item. Preço não encontrado.');
+           
+            mostrarNotificacaoErro('❌ Erro ao adicionar o item. Preço não encontrado.');
         }
     });
 });
@@ -261,7 +275,7 @@ document.querySelectorAll('.btn-add-sabor').forEach(botao => {
         if (secaoPai && secaoPai.id === 'Redonda') {
             const botaoSelecionado = document.querySelector('.secao-tortas#Redonda .btn-opcao-redonda[data-selecionado]');
             if (!botaoSelecionado) {
-                mostrarNotificacao('⚠️ Por favor, selecione o tamanho da torta redonda!');
+                mostrarNotificacaoErro('⚠️ Por favor, selecione o tamanho da torta redonda!');
                 return;
             }
 
@@ -272,7 +286,7 @@ document.querySelectorAll('.btn-add-sabor').forEach(botao => {
         else if (secaoPai && secaoPai.id === 'retangular') {
             const botaoSelecionado = document.querySelector('.secao-tortas#retangular .btn-opcao-retangular[data-selecionado]');
             if (!botaoSelecionado) {
-                mostrarNotificacao('⚠️ Por favor, selecione o tamanho da torta retangular!');
+                mostrarNotificacaoErro('⚠️ Por favor, selecione o tamanho da torta retangular!');
                 return;
             }
 
@@ -281,7 +295,7 @@ document.querySelectorAll('.btn-add-sabor').forEach(botao => {
             preco = parseFloat(botaoSelecionado.dataset.preco);
         } 
         else {
-            mostrarNotificacao('⚠️ Formato da torta não identificado!');
+            mostrarNotificacaoErro('⚠️ Formato da torta não identificado!');
             return;
         }
 
@@ -380,12 +394,12 @@ document.querySelector('.btn-add-barra').addEventListener('click', () => {
     const quantidade = parseInt(container.querySelector('.quantidade')?.textContent) || 1;
 
     if (!tamanhoSelecionado || isNaN(precoSelecionado)) {
-      alert("Escolha um tamanho antes de adicionar!");
+      mostrarNotificacaoErro("Escolha um tamanho antes de adicionar!");
         return;
     }
 
     if(saborSelecionado === null) {
-        alert("Escolha um sabor antes de adicionar!");
+        mostrarNotificacaoErro("Escolha um sabor antes de adicionar!");
         return;
     }
 
@@ -495,7 +509,7 @@ function configurarBrownies() {
                 const selectedOption = container.querySelector('.flavor-option.selected');
                 
                 if (!selectedOption) {
-                    mostrarNotificacao('⚠️ Por favor, selecione um sabor!');
+                    mostrarNotificacaoErro('⚠️ Por favor, selecione um sabor!');
                     return;
                 }
 

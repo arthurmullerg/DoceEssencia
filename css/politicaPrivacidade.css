@@ -1,4 +1,12 @@
-
+.menu-desktop li a {
+    color: var(--azul-principal);
+    font-weight: bold;
+    font-size: 18px;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s;
+      font-family: 'Poppins', serif;
+}
 /* Container Principal */
 .politica-container {
     display: flex;

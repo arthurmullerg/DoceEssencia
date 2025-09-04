@@ -111,6 +111,7 @@ html,body{
     position: relative;
     text-decoration: none;
     transition: color 0.3s;
+      font-family: 'Poppins', serif;
 }
 
 .menu-desktop li a::after {
