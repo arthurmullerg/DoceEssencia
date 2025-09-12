@@ -640,54 +640,55 @@ document.getElementById('btn-add-docinho').addEventListener('click', () => {
 });
 
     // 4. Enviar Pedido por WhatsApp (verifica se o botão existe)
-   if (btnEnviarWhats) {
-    btnEnviarWhats.addEventListener('click', () => {
-        const selectBairro = document.getElementById("selectAeroclube");
-        const bairroSelecionado = selectBairro ? selectBairro.value : null;
+  if (btnEnviarWhats) {
+  btnEnviarWhats.addEventListener('click', () => {
+    const selectBairro = document.getElementById("selectBairro");
+    const bairroSelecionado = selectBairro ? selectBairro.value.trim() : "";
 
-        if (!bairroSelecionado) {
-            alert('Por favor, selecione seu bairro para calcular o frete.');
-            return;
-        }
+    const rua = document.getElementById("rua")?.value.trim() || "";
+    const numero = document.getElementById("numero")?.value.trim() || "";
+    const complemento = document.getElementById("complemento")?.value.trim() || "";
 
-        const frete = precoFrete[bairroSelecionado] || 0;
+    if (!rua || !numero || !bairroSelecionado) {
+      alert("Por favor, preencha todos os campos de endereço (Rua, Número, Complemento e Bairro).");
+      return;
+    }
 
-        // 🔹 Captura novos campos
-        const rua = document.getElementById("rua")?.value || "";
-        const numer = document.getElementById("numero")?.value || "";
-        const complemento = document.getElementById("complemento")?.value || "";
+    const frete = precoFrete[bairroSelecionado] || 0;
 
-        let mensagem = 'Olá! Gostaria de fazer';
+    let mensagem = 'Olá! Gostaria de fazer';
 
-        if (pedido.length > 0) {
-            mensagem += ' o seguinte pedido:\n\n';
+    if (pedido.length > 0) {
+      mensagem += ' o seguinte pedido:\n\n';
 
-            pedido.forEach(item => {
-                mensagem += `- ${item.nome}: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
-            });
+      pedido.forEach(item => {
+        mensagem += `- ${item.nome}: R$ ${item.preco.toFixed(2).replace('.', ',')}\n`;
+      });
 
-            const totalProdutos = pedido.reduce((sum, item) => sum + item.preco, 0);
-            const totalComFrete = totalProdutos + frete;
+      const totalProdutos = pedido.reduce((sum, item) => sum + item.preco, 0);
+      const totalComFrete = totalProdutos + frete;
 
-            mensagem += `\n Endereço de entrega:`;
-            mensagem += `\nRua: ${rua}`;
-            mensagem += `\nNúmero: ${numer}`;
-            if (complemento) mensagem += `\nComplemento: ${complemento}`;
-            mensagem += `\nBairro: ${bairroSelecionado.replace(/-/g, ' ')}`;
+      mensagem += `\n Endereço de entrega:`;
+      mensagem += `\nRua: ${rua}`;
+      mensagem += `\nNúmero: ${numero}`;
+      if (complemento) mensagem += `\nComplemento: ${complemento}`;
+      mensagem += `\nBairro: ${bairroSelecionado.replace(/-/g, ' ')}`;
 
-            mensagem += `\n\n Frete: R$ ${frete.toFixed(2).replace('.', ',')}`;
-            mensagem += `\n*Total (produtos + frete): R$ ${totalComFrete.toFixed(2).replace('.', ',')}*`;
-        } else {
-            mensagem += ' um pedido.';
-        }
+      mensagem += `\n\n Frete: R$ ${frete.toFixed(2).replace('.', ',')}`;
+      mensagem += `\n*Total (produtos + frete): R$ ${totalComFrete.toFixed(2).replace('.', ',')}*`;
+    } else {
+      mensagem += ' um pedido.';
+    }
 
-        mensagem += '\n\nAguardo confirmação, obrigado!';
+    mensagem += '\n\nAguardo confirmação, obrigado!';
 
-        const numero = "5198097470";
-        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-        window.open(url, '_blank');
-    });
+    const telefoneWhats = "5198097470";
+    const url = `https://wa.me/${telefoneWhats}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+  });
 }
+
+
 
     function renderizarPedido() {
     const container = document.querySelector('.produtos-pedido');
@@ -799,7 +800,7 @@ const precoFrete = {
 };
 
 
-const selectBairro = document.getElementById("selectAeroclube");
+const selectBairro = document.getElementById("selectBairro");
 const resultadoFrete = document.getElementById("frete-resultado");
 
 selectBairro.addEventListener("change", function() {
