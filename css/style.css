@@ -1315,6 +1315,7 @@ section.pedidos::before {
     list-style: none;
     padding: 0;
     gap: 20px;
+    margin-top: 35px;
 }
 
 .menu-link-formato {
