@@ -31,7 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         mostrarNotificacao(`✅ Tamanho ${btn.dataset.tamanho} fatias selecionado! Agora escolha o sabor.`);
     });
+      // Para cada "flavor-selector" (pote, escondidinho, etc.)
+  document.querySelectorAll(".flavor-selector").forEach(selector => {
+    const flavorOptions = selector.querySelectorAll(".flavor-option");
+    const precoBox = selector.querySelector(".preco");
+
+    function atualizarPreco(option) {
+      let preco = parseFloat(option.getAttribute("data-preco")) || 0;
+
+      // Se for sabor com nutella, acrescenta R$ 2
+      if (option.getAttribute("data-flavor").includes("nutella")) {
+        preco += 2;
+      }
+
+      precoBox.textContent = `R$ ${preco.toFixed(2).replace(".", ",")}`;
+    }
+
+    // Define o preço inicial (do que está "selected")
+    const inicial = selector.querySelector(".flavor-option.selected");
+    if (inicial) atualizarPreco(inicial);
+
+    // Clique em cada sabor
+    flavorOptions.forEach(option => {
+      option.addEventListener("click", () => {
+        // Remove "selected" do anterior
+        selector.querySelector(".flavor-option.selected")?.classList.remove("selected");
+
+        // Marca o atual
+        option.classList.add("selected");
+
+        // Atualiza o preço
+        atualizarPreco(option);
+      });
+    });
+  });
 });
+
+
+
+
 
 document.querySelectorAll('.btn-opcao-retangular').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -182,7 +220,7 @@ document.querySelectorAll('.btn-escolha').forEach(botao => {
 });
 
 
-  // 3. Adicionar produto ao pedido - VERSÃO CORRIGIDA
+  // 3. Adicionar produto ao pedido
 botoesAdicionar.forEach(botao => {
     botao.addEventListener('click', function() {
         const produto = this.closest('.produto, .produto-ninho');
@@ -349,6 +387,7 @@ document.addEventListener('click', function(e) {
         produto.querySelector('.preco').textContent = `R$ ${preco.toFixed(2).replace('.', ',')}`;
     }
 });
+// mudança na tela sabor do escondinho 
 
 document.querySelectorAll('.menu-link-formato').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -525,9 +564,13 @@ function configurarBrownies() {
                 };
 
                 // Adiciona ao pedido
+                let precoFinal = preco;
+                if (nomeSabor.toLowerCase().includes("nutella")) {
+                    precoFinal += 2; // acréscimo do Nutella só para brownies
+                }
                 pedido.push({
                     nome: `${tipoNomes[tipo]} - ${nomeSabor} (x${quantidade})`,
-                    preco: preco * quantidade
+                    preco: precoFinal * quantidade
                 });
 
                 // Atualiza a interface
