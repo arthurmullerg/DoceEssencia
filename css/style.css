@@ -1287,7 +1287,11 @@ section.pedidos::before {
     font-size: 16px;
     margin: 0;
 }
-
+  .descricao-sabor-c{
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+    }
 .btn-add-sabor {
     background-color: rgba(226, 48, 87, 0.719); 
     color: white;
@@ -2046,7 +2050,7 @@ section.pedidos::before {
         margin-top: 8px;
         margin-bottom: 12px;
     }
-
+ 
     .titulo-principal {
         font-size: 26px;
     }
