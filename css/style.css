@@ -392,6 +392,11 @@ html,body{
     text-align: center;   
     margin: 0 auto;     
 }
+.produtos-grid.produto {
+    flex: 1 1 300px;  /* largura mínima 300px e ajustável */
+    max-width: 320px; /* largura máxima p/ não esticar demais */
+    margin: 0 auto;   /* garante centralização */
+}
 
 .produto-queridinho .img-mosaico-single {
    width: 100%;
@@ -1908,9 +1913,12 @@ section.pedidos::before {
   .titulo-galeria{
     margin-top: 32px;
   }
-  .produtos-grid {
+  .produtos-grid .produto {
         align-items: center;
         justify-content: center;
+        flex: 1 1 90%;   /* ocupa 90% da tela */
+        max-width: 350px;
+        margin-right: 50px;
     }
 }
 
