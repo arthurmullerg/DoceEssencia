@@ -1124,6 +1124,9 @@ section.pedidos::before {
     gap: 1rem;
     flex-wrap: wrap;
 }
+.desc-tamanho{
+    text-align: center;
+}
 .btn-bairro {
   display: flex;
   flex-direction: column;
